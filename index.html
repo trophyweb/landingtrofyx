@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<!-- LANDING TROFYX · VERSIÓN A · vende la llamada (sesión gratis de 30 min) -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trofyx® | Agente de IA para WhatsApp listo en 72 horas</title>
+<meta name="description" content="¿Vendes por WhatsApp? Con el Sistema Cero Visto de Trofyx, un agente de IA responde en segundos a cada cliente, lo califica y lo agenda 24/7 con la API oficial de Meta. Agenda tu sesión gratis de 30 minutos y te lo dejamos listo en 72 horas.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preload" as="image" href="assets/vsl-poster.webp">
+<script>
+  /* Por defecto: texto negro sobre blanco. El modo oscuro solo se activa si la persona lo elige. */
+  (function () {
+    try { if (localStorage.getItem('trofyx-theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kalam:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kalam:wght@700&display=swap" rel="stylesheet"></noscript>
+<style>
+/* =========================================================
+   TOKENS (modo claro / oscuro)
+   ========================================================= */
+:root{
+  --primary:#7B26FA;
+  --primary-hover:#150132;
+  --purple-500:#7F56D9;
+  --bg:#FFFFFF;
+  --bg-lav:#F9F5FF;
+  --bg-gray:#F7F7F8;
+  --ink:#150132;
+  --text:#000000;
+  --text-soft:#344054;
+  --card:#FFFFFF;
+  --card-shadow:0 20px 25px -5px rgba(16,24,40,.08),0 8px 10px -6px rgba(16,24,40,.06);
+  --eyebrow:#6A1BE0;
+  --pill-text:#2B2932;
+  --pill-shadow:0 4px 50px rgba(0,0,0,.10);
+  --nav:#475467;
+  --nav-active:#000000;
+  --border:rgba(21,1,50,.10);
+  --red:#E5484D;
+  --green:#6DE16D;
+  --green-ink:#242229;
+  --toggle-bg:#EAE4F7;
+  --frame:#FFFFFF;
+  --frame-shadow:0 10px 30px rgba(21,1,50,.08);
+  --plan-basic:#FFFFFF;
+  --plan-basic-btn:#F3F4F6;
+  --plan-basic-btn-text:#000000;
+  --plan-basic-name:#7B26FA;
+  --chart-bg:#FFFFFF;
+  --chart-grid:rgba(21,1,50,.08);
+  --chart-text:#150132;
+  --num-card-edge:#E4DDF4;
+  --icon-btn:#F2F4F7;
+}
+html.dark{
+  --bg:#242229;
+  --bg-lav:#2B2932;
+  --bg-gray:#242229;
+  --ink:#FFFFFF;
+  --text:#FFFFFF;
+  --text-soft:#D3D3D4;
+  --card:#2B2932;
+  --card-shadow:0 20px 25px -5px rgba(0,0,0,.25);
+  --eyebrow:#C299FF;
+  --pill-shadow:0 4px 50px rgba(78,43,159,.73);
+  --nav:#D3D3D4;
+  --nav-active:#FFFFFF;
+  --border:rgba(255,255,255,.10);
+  --red:#ED2C2C;
+  --green:#41D841;
+  --toggle-bg:#2B2932;
+  --frame:#3A3842;
+  --frame-shadow:none;
+  --plan-basic:#242229;
+  --plan-basic-btn:#2B2932;
+  --plan-basic-btn-text:#C299FF;
+  --plan-basic-name:#C299FF;
+  --chart-bg:#1E1C22;
+  --chart-grid:rgba(255,255,255,.08);
+  --chart-text:#FFFFFF;
+  --num-card-edge:#1A1820;
+  --icon-btn:#2B2932;
+}
+
+/* =========================================================
+   BASE — el copy es el bistec: 19px (≈14pt), negro sobre blanco
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji",sans-serif;font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background-color .3s ease,color .3s ease}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4,h5,p{margin:0}
+.container{width:min(1152px,100% - 32px);margin-inline:auto}
+.narrow{max-width:860px}
+.center{text-align:center}
+.section{padding:96px 0}
+@media (max-width:1023px){.section{padding:64px 0}}
+
+.eyebrow{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--eyebrow);margin-bottom:16px}
+.h1{font-weight:700;line-height:1.1;letter-spacing:-.035em;color:var(--ink)}
+.h2{font-weight:700;font-size:clamp(30px,3.8vw,52px);line-height:1.22;letter-spacing:-.035em;color:var(--ink)}
+.h3{font-weight:700;font-size:clamp(26px,2.7vw,38px);line-height:1.22;letter-spacing:-.03em;color:var(--ink)}
+.lead{font-size:clamp(19px,1.6vw,22px);line-height:1.55;color:var(--text)}
+.center .lead{margin-inline:auto}
+.hl{display:inline-block;background:#fff;color:var(--pill-text);padding:0 .24em .08em;margin-top:.06em;border-radius:14px;transform:rotate(-1.16deg);box-shadow:var(--pill-shadow);line-height:1.05}
+.stars{color:#F5A000;letter-spacing:2px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:clamp(18px,1.6vw,21px);line-height:1.3;padding:16px 36px;border-radius:9999px;background:var(--primary);color:#fff;box-shadow:0 10px 24px rgba(123,38,250,.30);transition:background-color .2s ease,transform .2s ease;text-align:center}
+.btn:hover{background:var(--primary-hover);transform:translateY(-1px)}
+html.dark .btn:hover{background:#5A12C9}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-sm{gap:0;font-size:16px;padding:10px 22px;box-shadow:none}
+.alt-link{display:inline-block;margin-top:12px;font-size:17px;font-weight:600;color:var(--eyebrow);text-decoration:underline;text-underline-offset:3px}
+
+/* Marcador de datos que faltan (el playbook prohíbe inventar cifras) */
+.dato{background:#FFF3B0;color:#5A4500;border:1.5px dashed #D9A400;border-radius:6px;padding:.05em .4em;font-weight:600;font-style:normal;font-size:.86em;line-height:1.5}
+
+/* Prueba junto a cada CTA */
+.proofline{display:flex;align-items:center;gap:12px;margin-top:16px;font-size:16px;line-height:1.45;color:var(--text);text-align:left}
+.avs{display:flex;flex:none;padding-left:8px}
+.avs .av{width:34px;height:34px;font-size:11px;margin-left:-8px;border:2px solid var(--bg)}
+.avs img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:50% 28%;margin-left:-8px;border:2px solid var(--bg);background:#222}
+a.hero-proof:hover b{text-decoration:underline;text-underline-offset:3px}
+.pmini{display:flex;gap:14px;align-items:flex-start;max-width:640px;margin:0 auto 22px;padding:18px 20px;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--card-shadow);text-align:left}
+.pmini .av{width:40px;height:40px;font-size:13px}
+.pmini q{display:block;quotes:"“" "”";font-size:18.7px;line-height:1.5}
+.pmini small{display:block;margin-top:4px;font-size:15px;font-weight:600;color:var(--text-soft)}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background-color .3s ease,box-shadow .3s ease}
+.header-in{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;transition:padding .3s ease}
+.header.scrolled{background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--border)}
+.header.scrolled .header-in{padding:12px 32px}
+.logo{display:flex;align-items:center;height:40px}
+.logo img{height:36px;width:auto}
+.logo .for-dark{display:none}
+html.dark .logo .for-dark{display:block}
+html.dark .logo .for-light{display:none}
+.nav{display:flex;position:absolute;left:50%;transform:translateX(-50%)}
+.nav a{display:block;padding:8px 24px;font-size:17px;color:var(--nav);transition:color .2s}
+.nav a.active{color:var(--nav-active);font-weight:600}
+.nav a:hover{color:var(--nav-active)}
+.header-actions{display:flex;align-items:center;gap:10px}
+.login-link{font-size:16px;font-weight:600;color:var(--nav);padding:8px 10px}
+.login-link:hover{color:var(--nav-active)}
+.icon-btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--icon-btn);color:var(--ink);transition:transform .2s}
+.icon-btn:hover{transform:rotate(-12deg)}
+.icon-btn svg{width:20px;height:20px}
+.icon-btn .sun{display:none}
+html.dark .icon-btn .sun{display:block}
+html.dark .icon-btn .moon{display:none}
+.burger{display:none}
+.mobile-nav{display:none}
+@media (max-width:1100px){.nav a{padding:8px 14px}}
+@media (max-width:960px){
+  .header-in{padding:14px 16px}
+  .header.scrolled .header-in{padding:10px 16px}
+  .nav,.login-link{display:none}
+  .burger{display:grid}
+  .header-actions{gap:8px}
+  .header-actions .btn-sm{padding:9px 16px;font-size:15px}
+  .icon-btn{width:40px;height:40px}
+  .logo img{height:28px}
+  .mobile-nav{display:none;flex-direction:column;padding:8px 16px 20px;background:var(--bg);border-bottom:1px solid var(--border)}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:12px 4px;font-size:18px;color:var(--nav);border-bottom:1px solid var(--border)}
+}
+@media (max-width:420px){.hide-sm{display:none}}
+
+/* =========================================================
+   HERO — headline complex: eyebrow, headline, subheadline, VSL, CTA, prueba
+   ========================================================= */
+.hero{padding:96px 0 56px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-areas:"copy media" "cta media";column-gap:44px;row-gap:20px;align-items:center;width:min(1280px,100% - 48px);margin-inline:auto}
+.hero-copy{grid-area:copy;align-self:end}
+.hero-media{grid-area:media}
+.hero-cta{grid-area:cta;align-self:start}
+.hero-eyebrow{font-size:15px;font-weight:600;line-height:1.45;color:var(--text);margin-bottom:12px}
+.hero-eyebrow .stars{margin-right:4px}
+.hero-eyebrow b{color:var(--eyebrow)}
+.hero .h1{font-size:clamp(27px,2.8vw,44px)}
+.mk{color:var(--primary);background:linear-gradient(transparent 64%,rgba(123,38,250,.16) 64%);padding:0 .06em;white-space:nowrap}
+html.dark .mk{color:#C299FF}
+.hero .lead{margin-top:14px;font-size:clamp(19px,1.4vw,21px)}
+.vbox{position:relative;display:block;width:100%;border-radius:18px;overflow:hidden;aspect-ratio:1280/714;background:#111;box-shadow:0 30px 60px rgba(21,1,50,.28);cursor:pointer;border:3px solid var(--primary)}
+.vbox > img{width:100%;height:100%;object-fit:cover}
+.vbox .vhook{position:absolute;left:14px;top:14px;right:14px;display:flex;justify-content:flex-start}
+.vbox .vhook span{background:#FFE14D;color:#111;font-weight:800;font-size:clamp(14px,1.3vw,18px);line-height:1.2;padding:8px 12px;border-radius:10px;transform:rotate(-1.5deg);box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:left}
+.vbox .vplay{position:absolute;left:21%;top:58%;transform:translate(-50%,-50%);width:clamp(64px,7vw,92px);height:clamp(64px,7vw,92px);border-radius:50%;background:var(--primary);display:grid;place-items:center;box-shadow:0 0 0 12px rgba(123,38,250,.30),0 14px 30px rgba(0,0,0,.35);transition:transform .2s}
+.vbox:hover .vplay{transform:translate(-50%,-50%) scale(1.07)}
+@media (max-width:1023px){.vbox .vplay{left:20%}}
+.vbox .vplay svg{width:38%;height:38%;color:#fff;margin-left:6%}
+.vbox .vtime{position:absolute;right:14px;bottom:14px;background:rgba(0,0,0,.75);color:#fff;font-size:14px;font-weight:700;padding:5px 10px;border-radius:8px}
+.vbox video{position:absolute;inset:0;width:100%;height:100%;background:#000}
+.hero-cta .btn{width:100%;max-width:560px}
+.hero .proofline{margin-top:12px}
+.hero .alt-link{margin-top:8px;font-size:16px}
+@media (max-width:1023px){
+  .hero{padding:80px 0 48px;text-align:center}
+  .hero-grid{grid-template-columns:1fr;grid-template-areas:"copy" "media" "cta";row-gap:18px;width:min(720px,100% - 32px)}
+  .hero-eyebrow{font-size:14px}
+  .hero .lead{margin-top:12px}
+  .hero-cta{display:flex;flex-direction:column;align-items:center}
+  .proofline{justify-content:center}
+}
+@media (max-width:480px){
+  .hero{padding-top:74px}
+  .hero-eyebrow{font-size:13.5px;margin-bottom:10px}
+  .hero .h1{font-size:26px;line-height:1.14}
+  .hero .lead{font-size:18.7px;line-height:1.45}
+  .hero-grid{row-gap:16px}
+  .hero-cta .btn{padding:14px 18px;font-size:17px}
+  .hero .proofline{flex-direction:column;gap:6px;text-align:center;font-size:15px;margin-top:10px}
+  .hero .avs .av{width:28px;height:28px;font-size:10px}
+}
+
+/* =========================================================
+   PROBLEMA (intriga + reflector sobre el problema)
+   ========================================================= */
+.s-problem{background:var(--bg-lav)}
+.kicker{font-size:clamp(20px,2vw,26px);font-weight:700;color:var(--eyebrow);margin-bottom:14px;line-height:1.35}
+.pains{list-style:none;padding:0;margin:32px auto 0;display:flex;flex-direction:column;gap:12px;max-width:860px;text-align:left}
+.pains li{display:flex;gap:14px;align-items:flex-start;background:var(--card);border-radius:14px;padding:16px 18px;box-shadow:var(--card-shadow)}
+.pains .x{flex:none;width:28px;height:28px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;margin-top:2px}
+.bridge{max-width:860px;margin:32px auto 0;font-size:clamp(20px,1.9vw,24px);font-weight:600;line-height:1.45;color:var(--ink)}
+
+/* Gráfica */
+.chart-head{margin-top:88px}
+.wa-word{display:inline-block;font-weight:800;letter-spacing:.1em;color:#1DA851;font-size:.7em;vertical-align:.08em}
+.chart{position:relative;max-width:1050px;margin:48px auto 0;background:var(--chart-bg);border-radius:24px;padding:48px 48px 36px 88px;box-shadow:var(--card-shadow);color:var(--chart-text)}
+.chart-ylab{position:absolute;left:30px;top:44%;transform:translate(-50%,-50%) rotate(-90deg);font-weight:700;font-size:14px;white-space:nowrap}
+.plot{position:relative;height:380px;border-left:1.5px solid var(--chart-text);border-bottom:1.5px solid var(--chart-text)}
+.grid-l{position:absolute;left:0;right:0;border-top:1px dashed var(--chart-grid);font-size:13px}
+.grid-l span{position:absolute;left:-36px;top:-10px;width:28px;text-align:right;opacity:.85}
+.groups{position:absolute;inset:0;display:flex;justify-content:space-around;align-items:flex-end;padding:0 4%}
+.group{display:flex;gap:28px;align-items:flex-end;height:100%;position:relative}
+.bar{position:relative;width:clamp(36px,6vw,64px);height:max(5px,calc(var(--h) * 1%));border-radius:4px 4px 0 0;background:linear-gradient(180deg,#1A80FF 0%,#1366E6 55%,#0B43B8 100%);transform-origin:bottom;transform:scaleY(0);transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.bar.muted{background:linear-gradient(180deg,#9AA4B2,#667085)}
+.chart.in .bar{transform:scaleY(1)}
+.tip{position:absolute;left:50%;bottom:calc(100% + 12px);transform:translateX(-50%);background:#150132;color:#fff;font-weight:700;font-size:15px;padding:5px 10px;border-radius:8px;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.tip::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#150132}
+html.dark .tip{background:#fff;color:#111}
+html.dark .tip::after{border-top-color:#fff}
+.xlabels{display:flex;justify-content:space-around;padding:12px 4% 0;font-size:13px;font-weight:600}
+.xlabels > div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.xlabels .xs{display:flex;gap:28px}
+.xlabels .xs span{width:clamp(36px,6vw,64px);text-align:center}
+.xlabels .xg{font-weight:700;font-size:15px;margin-top:6px}
+.legend{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px;margin-top:22px;font-size:14px;font-weight:600}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;margin-right:8px;vertical-align:-2px}
+.note-hand{position:absolute;font-family:Kalam,cursive;font-weight:700;font-size:clamp(16px,1.8vw,24px);line-height:1.05;color:var(--chart-text);white-space:nowrap}
+.note-hand svg{position:absolute}
+.source{margin-top:24px;color:var(--text-soft);font-size:15px}
+@media (max-width:700px){
+  .chart{padding:36px 16px 28px 52px}
+  .chart-ylab{left:14px;font-size:11px}
+  .plot{height:300px}
+  .group,.xlabels .xs{gap:14px}
+  .note-hand{display:none}
+}
+
+/* =========================================================
+   POR QUÉ FALLA LO DEMÁS (mecanismo detrás del problema)
+   ========================================================= */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:44px;text-align:left}
+.why-card{background:var(--card);border-radius:16px;padding:26px 26px 28px;box-shadow:var(--card-shadow);border:1px solid var(--border);border-top:5px solid var(--red)}
+.why-card .tag{display:inline-block;font-size:13px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.why-card h3{font-size:clamp(21px,1.9vw,25px);font-weight:700;line-height:1.25;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px}
+@media (max-width:760px){.why{grid-template-columns:1fr}}
+
+/* =========================================================
+   SISTEMA CERO VISTO (mecanismo de la solución)
+   ========================================================= */
+.s-mech{background:var(--bg-lav)}
+.mech{display:flex;flex-direction:column;gap:18px;max-width:880px;margin:44px auto 0;text-align:left}
+.step{display:flex;gap:20px;align-items:flex-start;background:var(--card);border-radius:16px;padding:24px 26px;box-shadow:0 6px 0 var(--num-card-edge),0 18px 34px rgba(16,24,40,.08)}
+html.dark .step{box-shadow:0 5px 0 #1A1820,0 18px 34px rgba(0,0,0,.25)}
+.num{flex:none;width:56px;height:56px;border-radius:50%;background:var(--purple-500);color:#fff;display:grid;place-items:center;font-weight:800;font-size:26px}
+.step h3{font-size:clamp(21px,2vw,26px);font-weight:700;line-height:1.25;letter-spacing:-.02em;color:var(--ink)}
+.step p{margin-top:6px}
+.fix{display:inline-block;margin-top:12px;font-size:16px;font-weight:700;line-height:1.4;color:#067647;background:#E7F8EE;padding:5px 12px;border-radius:8px}
+html.dark .fix{background:rgba(65,216,65,.12);color:#6DE16D}
+@media (max-width:640px){.step{padding:20px 18px;gap:14px}.num{width:42px;height:42px;font-size:20px}}
+
+/* Vieja forma vs Sistema Cero Visto */
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:72px auto 0}
+.vs-col{display:flex;flex-direction:column}
+.vs-col h4{text-align:center;font-weight:700;font-size:22px;letter-spacing:-.02em;color:var(--ink);margin-bottom:18px}
+.vs-list{position:relative;display:flex;flex-direction:column;gap:18px;flex:1}
+.vs-list::before{content:"";position:absolute;left:50%;top:0;bottom:24px;width:2px;transform:translateX(-50%)}
+.vs-col.old .vs-list::before{background:var(--red)}
+.vs-col.new .vs-list::before{background:var(--green)}
+.vcard{position:relative;z-index:1;display:flex;align-items:center;gap:16px;text-align:left;padding:20px 16px;border-radius:24px;font-weight:700;font-size:clamp(17px,1.4vw,20px);line-height:1.35}
+.vs-col.old .vcard{background:var(--red);color:#fff}
+.vs-col.new .vcard{background:var(--green);color:var(--green-ink)}
+.vcard svg{flex:none;width:40px;height:40px}
+.vout{position:relative;z-index:1;margin-top:auto;padding:28px 20px;border-radius:24px;text-align:center;font-weight:800;font-size:clamp(20px,2.1vw,28px);line-height:1.2;text-transform:uppercase}
+.vout::before{content:"";position:absolute;left:50%;top:-14px;transform:translateX(-50%);border:9px solid transparent;border-bottom:0;border-top-width:14px}
+.vs-col.old .vout{background:var(--red);color:#fff}
+.vs-col.old .vout::before{border-top-color:var(--red)}
+.vs-col.new .vout{background:var(--green);color:var(--green-ink)}
+.vs-col.new .vout::before{border-top-color:var(--green)}
+.vs-spacer{height:18px}
+@media (max-width:760px){.vs-grid{grid-template-columns:1fr;gap:56px}}
+.cta-block{margin-top:64px}
+
+/* =========================================================
+   EJEMPLOS (marquee de conversaciones)
+   ========================================================= */
+.s-examples{background:var(--bg);padding:96px 0 88px;overflow:hidden}
+.mq{display:flex;width:max-content;gap:16px;animation:mq-left var(--speed,70s) linear infinite}
+.mq.right{animation-name:mq-right}
+.mq-row{overflow:hidden;padding:8px 0}
+.mq-row:hover .mq{animation-play-state:paused}
+@keyframes mq-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes mq-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.mq-wrap{margin-top:40px;display:flex;flex-direction:column;gap:8px}
+.cr{flex:none;padding:8px;border-radius:22px;background:var(--frame);box-shadow:var(--frame-shadow);border:1px solid var(--border)}
+.cr-in{width:280px;height:280px;border-radius:14px;overflow:hidden;position:relative;background:#fff;color:#111}
+.cr-in > img{width:100%;height:100%;object-fit:cover}
+.chat{display:flex;flex-direction:column;background:#EFEAE2;font-size:13.5px;line-height:1.38}
+.chat-top{display:flex;align-items:center;gap:8px;padding:9px 10px;background:#fff;border-bottom:1px solid #e9e4dc}
+.chat-top b{display:block;font-size:13px;color:#111}
+.chat-top small{display:block;font-size:11px;color:#1E8E4E}
+.av{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;color:#fff;flex:none}
+.chat-body{flex:1;display:flex;flex-direction:column;gap:6px;padding:10px;background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);background-size:10px 10px}
+.bub{max-width:86%;padding:6px 9px;border-radius:10px;box-shadow:0 1px 1px rgba(0,0,0,.08)}
+.bub.u{background:#fff;align-self:flex-start;border-top-left-radius:3px}
+.bub.a{background:#D9FDD3;align-self:flex-end;border-top-right-radius:3px}
+.evt{align-self:center;margin-top:auto;background:#fff;border-radius:999px;padding:5px 11px;font-weight:700;font-size:12px;color:#150132;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.evt.p{background:#7B26FA;color:#fff}
+.evt.g{background:#25D366;color:#06301A}
+.mq-note{margin-top:20px;font-size:15px;color:var(--text-soft)}
+
+/* =========================================================
+   CREDENCIALES
+   ========================================================= */
+.s-creds{background:var(--bg-gray)}
+html.dark .s-creds{background:var(--bg-lav)}
+.creds{display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:center;max-width:1000px;margin:44px auto 0;text-align:left}
+.creds-photo{border-radius:22px;overflow:hidden;aspect-ratio:1;box-shadow:var(--card-shadow);border:4px solid var(--card)}
+.creds-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.creds h3{font-size:clamp(22px,2vw,28px);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.3}
+.creds ul{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:12px}
+.creds li{display:flex;gap:12px;align-items:flex-start}
+.ck{flex:none;width:22px;height:22px;border-radius:50%;background:var(--primary);display:grid;place-items:center;margin-top:4px}
+.ck svg{width:12px;height:12px;color:#fff}
+@media (max-width:800px){.creds{grid-template-columns:1fr;gap:24px}.creds-photo{width:240px;margin:0 auto}}
+
+.founders{display:flex;justify-content:center;flex-wrap:wrap;gap:24px clamp(28px,6vw,72px);margin-top:44px}
+.founder{margin:0;width:260px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.founder img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:5px solid var(--card);box-shadow:var(--card-shadow);background:#fff}
+.founder b{display:block;font-size:19px;line-height:1.3;color:var(--ink)}
+.founder small{display:block;margin-top:2px;font-size:15px;color:var(--text-soft)}
+.creds-copy{max-width:880px;margin:36px auto 0}
+.creds-note{margin-top:12px;font-size:17px;font-weight:600;color:var(--eyebrow)}
+.creds-note a{text-decoration:underline;text-underline-offset:3px}
+.creds-copy ul{list-style:none;padding:0;margin:28px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;text-align:left}
+.creds-copy li{display:flex;gap:12px;align-items:flex-start}
+@media (max-width:700px){.creds-copy ul{grid-template-columns:1fr}.founder img{width:168px;height:168px}}
+
+/* =========================================================
+   BENEFICIOS (texto + imagen alternados)
+   ========================================================= */
+.s-benefits{background:var(--bg)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;text-align:left}
+.split + .split{margin-top:104px}
+.split p{font-size:20px;line-height:1.6;margin-top:16px;color:var(--text)}
+.split.rev .split-media{order:-1}
+.split-media{position:relative;border-radius:18px;border:1px solid var(--border);background:linear-gradient(160deg,#2F2D36 0%,#1E1C22 100%);aspect-ratio:1.12;display:grid;place-items:center;overflow:hidden}
+.split-media::before{content:"";position:absolute;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle,rgba(123,38,250,.35),transparent 70%);filter:blur(10px)}
+.split-media img{position:relative;width:min(412px,82%);border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.split-media .fb-badge{position:absolute;top:18px;right:22%;width:52px;height:52px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 0 0 8px rgba(37,211,102,.15),0 10px 30px rgba(0,0,0,.4);z-index:2}
+.split-media .fb-badge svg{width:28px;height:28px;color:#fff}
+@media (max-width:900px){
+  .split{grid-template-columns:1fr;gap:28px}
+  .split.rev .split-media{order:0}
+  .split + .split{margin-top:72px}
+  .split p{font-size:19px}
+}
+
+/* Panel con teléfono */
+.s-sell{padding:32px 16px 96px;background:var(--bg)}
+.sell{display:flex;align-items:center;gap:48px;max-width:1300px;margin:0 auto;background:var(--bg-lav);color:var(--text);border:1px solid var(--border);border-radius:28px;padding:0 80px 0 64px;min-height:560px}
+.sell-copy{flex:1;padding:64px 0}
+.sell-copy .h2{font-size:clamp(30px,3.4vw,50px)}
+.sell-copy p{font-size:20px;line-height:1.6;margin:20px 0 0;max-width:560px}
+.sell-copy .pmini{margin:28px 0 18px}
+.sell-media{flex:1;position:relative;display:flex;justify-content:center;align-self:stretch}
+.phone{position:relative;color:#111;width:min(380px,100%);margin-top:-60px;align-self:flex-start;border:11px solid #1D1D1F;border-bottom:0;border-radius:56px 56px 0 0;background:#fff;box-shadow:0 0 0 2px #4a4a4f;height:calc(100% + 60px);overflow:hidden;display:flex;flex-direction:column}
+.phone .notch{width:22px;height:22px;border-radius:50%;background:#000;margin:14px auto 10px}
+.phone .chat{flex:1;font-size:14px}
+.phone .chat-top{padding:10px 14px}
+.phone .chat-top .av{width:36px;height:36px}
+.phone .chat-top b{font-size:15px}
+.phone .chat-top small{font-size:12px}
+.phone .chat-body{gap:8px;padding:14px}
+.phone .bub time{display:block;text-align:right;font-size:10px;color:#667781;margin-top:2px}
+.lead-card{position:absolute;right:-24px;bottom:56px;width:250px;background:#fff;color:#150132;border-radius:16px;padding:16px;box-shadow:0 30px 60px rgba(0,0,0,.25);z-index:2;animation:float2 5s ease-in-out infinite}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.lead-card .lc-h{display:flex;align-items:center;justify-content:space-between;font-weight:800;font-size:14px}
+.lead-card .lc-h span{background:#FEE4E2;color:#B42318;border-radius:999px;padding:3px 8px;font-size:11px}
+.lead-card .lc-n{display:flex;align-items:center;gap:10px;margin:12px 0}
+.lead-card .lc-n b{display:block;font-size:14px}
+.lead-card .lc-n small{display:block;font-size:12px;color:#667085}
+.lead-card .lc-row{display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-top:1px solid #F2F4F7}
+.lead-card .lc-row b{color:#150132}
+.lead-card .meter{height:6px;border-radius:9px;background:#F2F4F7;margin-top:4px;overflow:hidden}
+.lead-card .meter i{display:block;height:100%;width:88%;background:linear-gradient(90deg,#9C73F1,#7B26FA)}
+@media (max-width:980px){
+  .sell{flex-direction:column;padding:0 20px;gap:0;text-align:center}
+  .sell-copy{padding:48px 0 32px}
+  .sell-copy p{margin-inline:auto}
+  .sell-copy .pmini{margin:28px auto 18px}
+  .sell-media{width:100%;min-height:520px}
+  .phone{margin-top:0;height:520px}
+  .lead-card{right:0;bottom:24px;width:220px}
+}
+
+/* =========================================================
+   POR DENTRO: capturas + funciones
+   ========================================================= */
+.s-inside{background:var(--bg-lav);overflow:hidden}
+.shots{margin-top:44px;display:flex;flex-direction:column;gap:14px}
+.shot{flex:none;width:360px;height:250px;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 10px 30px rgba(21,1,50,.15);background:#140B28}
+.shot img{width:100%;height:100%;object-fit:cover}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;align-items:stretch;text-align:left}
+.feat{border-radius:16px;padding:26px 24px 28px;background:var(--card);box-shadow:var(--card-shadow)}
+.feat h3{font-weight:700;font-size:clamp(24px,2.3vw,32px);line-height:1.12;letter-spacing:-.03em;color:var(--ink);margin-bottom:18px}
+.feat ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.feat li{display:flex;gap:10px;line-height:1.5;color:var(--text)}
+@media (max-width:900px){.feats{grid-template-columns:1fr}}
+
+/* =========================================================
+   PRUEBA: testimonios + antes/después
+   ========================================================= */
+.s-proof{background:var(--bg)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;text-align:left}
+.tcard{display:flex;flex-direction:column;justify-content:space-between;gap:24px;background:var(--card);border:1px solid var(--border);box-shadow:var(--card-shadow);padding:28px;border-radius:16px;color:var(--text)}
+.tcard q{display:block;quotes:"“" "”";margin-top:10px;line-height:1.55}
+.tcard q b{font-weight:700}
+.tperson{display:flex;align-items:center;gap:14px}
+.tperson .av{width:44px;height:44px;font-size:15px}
+.tperson b{display:block;font-size:19px;letter-spacing:-.02em;line-height:1.3}
+.tperson small{display:block;color:var(--text-soft);font-size:15px}
+/* Testimonios en video */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1020px;margin:44px auto 0;text-align:left}
+.vt{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--card-shadow)}
+.vt-media{position:relative;aspect-ratio:9/16;background:#000;cursor:pointer;overflow:hidden}
+.vt-media > img{width:100%;height:100%;object-fit:cover}
+.vt-media video{position:absolute;inset:0;width:100%;height:100%;background:#000;object-fit:contain}
+.vt-media .vplay{position:absolute;left:50%;top:61%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:var(--primary);display:grid;place-items:center;box-shadow:0 0 0 10px rgba(123,38,250,.30),0 14px 30px rgba(0,0,0,.35);transition:transform .2s}
+.vt-media:hover .vplay{transform:translate(-50%,-50%) scale(1.07)}
+.vt-media .vplay svg{width:38%;height:38%;color:#fff;margin-left:6%}
+.vt-media .vtime{position:absolute;right:12px;top:12px;background:rgba(0,0,0,.75);color:#fff;font-size:14px;font-weight:700;padding:5px 10px;border-radius:8px}
+.vt-body{display:flex;flex-direction:column;justify-content:space-between;gap:14px;flex:1;padding:20px 22px 22px}
+.vt-body q{display:block;quotes:"“" "”";font-size:18.7px;line-height:1.5;font-weight:600;color:var(--ink)}
+.vt-hook{font-size:18.7px;line-height:1.5}
+.vt-who b{display:block;font-size:19px;line-height:1.3;color:var(--ink)}
+.vt-who small{display:block;margin-top:2px;font-size:15px;color:var(--text-soft)}
+.pmini .avimg{flex:none;width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 30%}
+@media (max-width:900px){
+  .vgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:36px -16px 0;padding:4px 16px 14px;-webkit-overflow-scrolling:touch}
+  .vt{flex:0 0 78%;max-width:340px;scroll-snap-align:center}
+}
+.offer-sub{margin-top:32px;font-size:clamp(20px,1.8vw,24px);font-weight:700;line-height:1.3;color:var(--ink);letter-spacing:-.02em}
+.offer-sub + .offer-list,.offer-sub + .stack{margin-top:14px}
+.stack{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stack li{display:flex;gap:12px;align-items:flex-start;background:var(--bg-lav);border-radius:14px;padding:14px 16px;font-weight:600;line-height:1.4;color:var(--ink)}
+.stack .ico{flex:none;font-size:22px;line-height:1.2}
+@media (max-width:640px){.stack{grid-template-columns:1fr}}
+.value s{font-weight:700;opacity:.75}
+.guar-line{margin-top:16px;font-weight:700;color:#067647}
+html.dark .guar-line,html.dark .hero-guar{color:#6DE16D}
+.hero-guar{margin-top:8px;font-size:16px;font-weight:700;line-height:1.4;color:#067647}
+.guar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1060px;margin:40px auto 0;text-align:left}
+.guar-card{background:var(--card);border:2px solid var(--primary);border-radius:18px;padding:24px;box-shadow:var(--card-shadow)}
+.guar-card .gi{font-size:30px;line-height:1}
+.guar-card h3{margin:10px 0 8px;font-size:clamp(20px,1.8vw,23px);font-weight:800;line-height:1.25;color:var(--ink);letter-spacing:-.02em}
+.fine{max-width:780px;margin:20px auto 0;font-size:15px;line-height:1.55;color:var(--text-soft);text-align:center}
+@media (max-width:900px){.guar-grid{grid-template-columns:1fr}}
+.gift{margin:-6px 0 18px;padding:9px 12px;border-radius:10px;background:rgba(255,255,255,.18);font-size:16px;font-weight:700;line-height:1.4}
+.plan-card.basic .gift{background:var(--bg-lav);color:var(--ink)}
+.gift s{font-weight:600;opacity:.8}
+.paths{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:16px;margin-top:14px;align-items:start}
+.path{border:2px solid var(--border);border-radius:18px;padding:20px 22px;background:var(--card)}
+.path.pro{border-color:var(--primary);background:var(--bg-lav)}
+.path-tag{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--eyebrow);margin-bottom:6px}
+.path h4{font-size:clamp(20px,1.8vw,23px);font-weight:800;line-height:1.25;color:var(--ink);letter-spacing:-.02em;margin-bottom:8px}
+.path .stack{grid-template-columns:1fr;gap:8px;margin-top:12px}
+.path.pro .stack li{background:var(--card)}
+@media (max-width:760px){.paths{grid-template-columns:1fr}}
+.mech-note{max-width:880px;margin:28px auto 0;text-align:left;background:var(--card);border:2px solid var(--primary);border-radius:18px;padding:22px 24px;box-shadow:var(--card-shadow)}
+.proof-slot.sm{margin-top:14px;padding:14px 16px}
+.shot-card{margin:0;gap:16px;justify-content:flex-start}
+.shot-card img{width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}
+.shot-card figcaption b{display:block;font-size:19px;line-height:1.3;color:var(--ink)}
+.shot-card figcaption small{display:block;margin-top:6px;font-size:16px;line-height:1.5;color:var(--text-soft)}
+.proof-slot{border:2.5px dashed #D9A400;background:#FFFBEA;border-radius:16px;padding:28px;display:flex;flex-direction:column;justify-content:center;gap:12px;color:#5A4500}
+.proof-slot b{font-size:20px;color:#3D2F00}
+html.dark .proof-slot{background:#2B2610;color:#FFE58A}
+html.dark .proof-slot b{color:#FFF3B0}
+@media (max-width:900px){.tgrid{grid-template-columns:1fr}}
+
+.results{display:flex;flex-direction:column;gap:64px;margin-top:48px}
+.res{display:grid;grid-template-columns:190px minmax(0,600px) 190px;gap:14px;justify-content:center;align-items:center}
+.hand{font-family:Kalam,cursive;font-weight:700;font-size:22px;line-height:1.05;color:var(--ink)}
+.hand svg{width:46px;height:auto;color:#E53935;flex:none}
+.res-left{display:flex;flex-direction:column;align-self:end;text-align:right}
+.res-left .hand{height:52px;display:flex;align-items:center;justify-content:flex-end;gap:6px;white-space:nowrap}
+.res-right{display:flex;align-items:center;gap:8px}
+.am{background:#fff;color:#1C2B33;border-radius:4px;overflow:hidden;font-size:16px;box-shadow:0 10px 30px rgba(0,0,0,.14);font-family:"Segoe UI",Helvetica,Arial,sans-serif;border:1px solid #DADDE1}
+.am table{width:100%;border-collapse:collapse}
+.am th{font-weight:700;text-align:left;padding:12px;border-bottom:1px solid #DADDE1;border-right:1px solid #E4E6EB;font-size:15px;line-height:1.25;vertical-align:top}
+.am th:last-child,.am td:last-child{border-right:0}
+.am td{text-align:right;padding:0 12px;height:52px;border-right:1px solid #E4E6EB;white-space:nowrap}
+.am tr.b td{background:#F5F6F7;color:#5B6470}
+.am tr.k td{background:#fff;font-weight:700}
+.circled{position:relative;display:inline-block}
+.circled::after{content:"";position:absolute;inset:-9px -14px;border:2.5px solid #E53935;border-radius:50%;transform:rotate(-4deg)}
+@media (max-width:900px){
+  .res{grid-template-columns:1fr;gap:10px}
+  .res-left,.res-right{display:none}
+  .am tr.k td:first-child::before{content:"Con Trofyx · ";color:#7B26FA}
+  .am tr.b td:first-child::before{content:"Sin Trofyx · ";font-weight:700;color:#E53935}
+  .am{overflow-x:auto}
+  .am td{white-space:normal;padding:8px 10px}
+}
+
+/* =========================================================
+   OFERTA
+   ========================================================= */
+.s-offer{background:var(--bg-lav)}
+.offer{max-width:980px;margin:0 auto;border:3px solid var(--primary);border-radius:28px;padding:52px clamp(20px,5vw,60px);background:var(--card);box-shadow:0 30px 70px rgba(123,38,250,.16);text-align:left}
+.offer-tag{display:inline-block;background:var(--primary);color:#fff;font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:18px}
+.offer .h2{font-size:clamp(28px,3.3vw,46px)}
+.offer > p{margin-top:18px}
+.offer-list{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-direction:column;gap:16px}
+.offer-list li{display:flex;gap:14px;align-items:flex-start}
+.offer-list .ck{width:28px;height:28px;margin-top:1px}
+.offer-list .ck svg{width:14px;height:14px}
+.offer-list b{color:var(--ink)}
+.value{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:30px;padding:20px 22px;border-radius:16px;background:var(--bg-lav);font-weight:600}
+.value .free{font-size:clamp(26px,2.6vw,34px);font-weight:800;color:var(--primary);letter-spacing:-.02em}
+.scarcity{margin-top:16px;font-weight:600;color:var(--ink)}
+.offer .cta-in{margin-top:30px;text-align:center}
+.offer .btn{width:100%;max-width:640px}
+.offer .proofline{justify-content:center}
+.offer .pmini{max-width:none;margin:0 0 20px;box-shadow:none;background:var(--bg-lav);border:0}
+
+/* =========================================================
+   PRECIOS
+   ========================================================= */
+.s-pricing{background:var(--bg);position:relative}
+.pill-top{display:inline-block;background:var(--bg-lav);color:var(--ink);border-radius:8px;padding:6px 14px;font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border)}
+.s-pricing .h2{max-width:960px;margin:20px auto 0}
+.s-pricing .lead{max-width:860px;margin:22px auto 0}
+.s-pricing .lead a{color:var(--eyebrow);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.toggle-wrap{display:flex;flex-direction:column;align-items:center;margin-top:36px}
+.toggle-note{font-size:14px;color:var(--eyebrow);font-weight:700;margin-bottom:6px;transform:translateX(70px)}
+.toggle{display:inline-flex;padding:4px;border-radius:999px;background:var(--toggle-bg);box-shadow:inset 0 1px 3px rgba(0,0,0,.15)}
+.toggle button{padding:9px 28px;border-radius:999px;font-weight:700;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink);transition:background .25s,color .25s}
+.toggle button.on{background:#7B26FA;color:#fff;box-shadow:0 2px 8px rgba(123,38,250,.4)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;max-width:1120px;margin-inline:auto}
+.plan-card{position:relative;border-radius:14px;padding:32px 24px 24px;min-height:330px;display:flex;flex-direction:column;color:#fff}
+.plan-card.basic{background:var(--plan-basic);color:var(--text);box-shadow:var(--card-shadow);border:1px solid var(--border)}
+.plan-card.pop{background:linear-gradient(180deg,#9C73F1,#7037F0)}
+.plan-card.pro{background:linear-gradient(180deg,#5B5B5B,#2F2E2E)}
+.plan-tab{position:absolute;left:50%;top:-18px;transform:translateX(-50%);background:#fff;color:#150132;border-radius:8px;padding:6px 14px;font-weight:800;font-size:15px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.pname{font-weight:700;font-size:24px;letter-spacing:-.02em}
+.plan-card.basic .pname{color:var(--plan-basic-name)}
+.pprice{display:flex;align-items:baseline;gap:6px;white-space:nowrap;margin-top:6px}
+.pprice b{font-weight:800;font-size:clamp(34px,3.2vw,48px);letter-spacing:-.04em;line-height:1.1}
+.pprice span{font-weight:700;font-size:16px}
+.pbilled{font-weight:700;font-size:15px;margin-top:6px}
+.pdesc{font-size:18.7px;line-height:1.5;margin:12px 0 20px}
+.pbtn{margin-top:auto;display:block;text-align:center;font-weight:700;font-size:18px;padding:13px 16px;border-radius:999px;transition:opacity .2s,transform .2s}
+.pbtn:hover{opacity:.88;transform:translateY(-1px)}
+.plan-card.basic .pbtn{background:var(--plan-basic-btn);color:var(--plan-basic-btn-text)}
+.plan-card.pop .pbtn{background:#150132;color:#fff}
+.plan-card.pro .pbtn{background:#fff;color:#150132}
+.pfeats{padding:32px 4px 0;text-align:left}
+.pgroup + .pgroup{margin-top:28px}
+.pgroup h5{margin:0 0 6px;font-size:19px;font-weight:700;color:var(--ink)}
+.pgroup p{font-size:18.7px;line-height:1.5;color:var(--text);margin-bottom:12px}
+.pgroup ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.pgroup li{display:flex;gap:10px;font-size:18.7px;line-height:1.45;color:var(--text)}
+.pgroup li b{font-weight:700}
+.pgroup .ck{margin-top:3px}
+.pnotes{margin:56px auto 0;max-width:760px;text-align:center;font-size:16px;line-height:1.6;color:var(--text-soft)}
+@media (max-width:900px){.plans{grid-template-columns:1fr;max-width:480px;gap:56px}.toggle-note{transform:none}}
+
+/* Garantía con laureles */
+.guarantee{display:flex;align-items:center;justify-content:center;gap:clamp(8px,2vw,24px);margin-top:96px}
+.laurel{width:clamp(48px,7vw,88px);height:auto;color:var(--primary)}
+.laurel.r{transform:scaleX(-1)}
+.guarantee .h2{text-align:center}
+.g-copy{max-width:680px;margin:22px auto 0;text-align:center}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+.s-faq{background:var(--bg-lav)}
+.faqs{max-width:1000px;margin:44px auto 0;display:flex;flex-direction:column;gap:14px}
+.faq{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(16,24,40,.04)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px 22px 24px;font-weight:700;font-size:clamp(19px,1.6vw,22px);line-height:1.35;letter-spacing:-.01em;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .plus{flex:none;width:22px;height:22px;color:var(--primary);transition:transform .3s ease}
+.faq[open] summary .plus{transform:rotate(45deg)}
+.faq .ans{padding:0 24px 24px;line-height:1.6;color:var(--text);max-width:900px}
+.faq .ans a{color:var(--eyebrow);font-weight:700;text-decoration:underline}
+
+/* =========================================================
+   CTA FINAL + P.D.
+   ========================================================= */
+.s-final{background:var(--bg);text-align:center;padding:104px 0 96px}
+.s-final .lead{max-width:720px;margin:22px auto 32px}
+.s-final .pmini{margin-bottom:22px}
+.ps{max-width:780px;margin:64px auto 0;text-align:left;padding:26px 30px;border-left:6px solid var(--primary);background:var(--bg-lav);border-radius:0 16px 16px 0}
+.ps p + p{margin-top:12px}
+.ps b{color:var(--ink)}
+
+/* Footer */
+.footer{background:var(--bg-gray);padding:64px 16px;text-align:center;border-top:1px solid var(--border)}
+html.dark .footer{background:var(--bg-lav)}
+.footer .logo{justify-content:center;height:auto}
+.footer .logo img{height:40px}
+.socials{display:flex;justify-content:center;gap:22px;margin:28px 0 22px}
+.socials a{color:var(--ink);opacity:.9;transition:opacity .2s,transform .2s}
+.socials a:hover{opacity:1;transform:translateY(-2px)}
+.socials svg{width:24px;height:24px}
+.copy{font-size:16px;color:var(--text)}
+.flinks{margin-top:6px;font-size:16px;color:var(--text)}
+.flinks a:hover{text-decoration:underline}
+.flinks span{margin:0 8px;opacity:.6}
+
+@media (prefers-reduced-motion:reduce){
+  .mq,.lead-card{animation:none}
+  .reveal{opacity:1;transform:none}
+  .bar{transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="header" id="header">
+  <div class="header-in">
+    <a href="#inicio" class="logo" aria-label="Trofyx inicio">
+      <img class="for-light" src="assets/logo-lockup-dark.png" alt="Trofyx" width="150" height="38">
+      <img class="for-dark" src="assets/logo-lockup-white.png" alt="Trofyx" width="150" height="38">
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#inicio" class="active">Inicio</a>
+      <a href="#funciones">Funciones</a>
+      <a href="#precios">Precios</a>
+    </nav>
+    <div class="header-actions">
+      <a class="login-link" href="https://app.trofyx.com/#/login">Iniciar sesión</a>
+      <a class="btn btn-sm" href="#sesion">Sesión<span class="hide-sm">&nbsp;gratis</span></a>
+      <button class="icon-btn" id="themeBtn" aria-label="Cambiar tema claro/oscuro">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
+    <a href="#inicio">Inicio</a>
+    <a href="#funciones">Funciones</a>
+    <a href="#precios">Precios</a>
+    <a href="#sesion">Sesión gratis de 30 min</a>
+    <a href="https://app.trofyx.com/#/login">Iniciar sesión</a>
+  </nav>
+</header>
+
+<main>
+<!-- ======================= 1–3 · HEADLINE COMPLEX ======================= -->
+<section class="hero" id="inicio">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <p class="hero-eyebrow"><span class="stars" aria-label="5 estrellas">★★★★★</span> <span>Restaurantes, agencias, negocios de salud y tiendas ya venden con Trofyx · <b>+10.000 mensajes enviados cada mes</b></span></p>
+      <h1 class="h1">¿Vendes por WhatsApp? En 72 horas te dejamos un agente de IA vendiendo por ti con el <span class="mk">Sistema Cero Visto</span>. Tú no configuras nada.</h1>
+      <p class="lead">Agenda una sesión gratis de 30 minutos y, si lo activas, te lo dejamos listo sin pagar la configuración (normalmente $1.000.000).</p>
+    </div>
+
+    <div class="hero-media">
+      <div class="vbox" id="vbox" data-video="assets/video-trofyx.mp4" role="button" tabindex="0" aria-label="Reproducir el video de Trofyx (57 segundos)">
+        <img src="assets/vsl-poster.webp" alt="Persona del equipo de Trofyx explicando el Sistema Cero Visto" width="1280" height="714" fetchpriority="high">
+        <div class="vhook"><span>Mira esto antes de contratar otro asesor 👇</span></div>
+        <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span>
+        <span class="vtime">▶ 57 seg</span>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn" href="#sesion">Reclama tu sesión gratis de 30 minutos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="proofline hero-proof" href="#testimonios">
+        <div class="avs" aria-hidden="true"><img src="assets/testimonio-hector.webp" alt="" width="34" height="34"><img src="assets/testimonio-martha.webp" alt="" width="34" height="34"><img src="assets/testimonio-javier.webp" alt="" width="34" height="34"></div>
+        <div>▶ <b>Mira lo que dicen Héctor, Martha y Javier</b> en video →</div>
+      </a>
+      <a class="alt-link" href="#precios">¿Prefieres activarlo ya? Mira los planes desde $69.000 COP/mes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4–5 · INTRIGA + PROBLEMA ======================= -->
+<section class="s-problem section center">
+  <div class="container">
+    <div class="reveal">
+      <p class="kicker">¿Cuántos clientes te escribieron anoche… y esta mañana ya le compraron a otro?</p>
+      <h2 class="h2">Cada chat que respondes tarde es una venta que le <span class="hl">regalas a tu competencia</span></h2>
+      <p class="lead narrow" style="margin-top:22px">Tus clientes ya no llaman: escriben. Y el que responde primero, vende. Si vendes por WhatsApp, seguro esto te suena:</p>
+    </div>
+    <ul class="pains reveal">
+      <li><span class="x">✕</span><span>Tus asesores se pasan el día contestando lo mismo: “¿precio?”, “¿tienen disponible?”, “¿hacen domicilios?”.</span></li>
+      <li><span class="x">✕</span><span>Te escriben a las 10 de la noche y respondes al otro día, cuando el cliente ya le compró a otro.</span></li>
+      <li><span class="x">✕</span><span>Los chats se pierden entre cinco celulares y WhatsApp Web, y nadie sabe quién atendió a quién.</span></li>
+      <li><span class="x">✕</span><span>Al que te dijo “lo pienso” nadie le volvió a escribir.</span></li>
+      <li><span class="x">✕</span><span>Agendas citas a mano, chat por chat, y nadie les recuerda que vengan.</span></li>
+      <li><span class="x">✕</span><span>Pagas publicidad en Meta para que te escriban… y los leads se enfrían en visto.</span></li>
+    </ul>
+    <p class="bridge reveal">El problema no es tu producto ni tu publicidad. Es la velocidad de respuesta. Y los números lo confirman:</p>
+
+    <div class="chart-head reveal">
+      <h3 class="h3">Si respondes en 5 minutos y no en 30, tienes <span class="hl">100 veces más</span> probabilidades de contactar al cliente</h3>
+      <p class="lead narrow" style="margin-top:18px">Es lo que encontró un estudio sobre tiempos de respuesta a leads: a los 5 minutos, la probabilidad de contactarlo es 100 veces mayor y la de calificarlo, 21 veces mayor que a los 30 minutos.</p>
+    </div>
+    <div class="chart" id="chart">
+      <div class="chart-ylab">Probabilidad relativa (veces)</div>
+      <div class="plot">
+        <div class="grid-l" style="top:0"><span>100</span></div>
+        <div class="grid-l" style="top:25%"><span>75</span></div>
+        <div class="grid-l" style="top:50%"><span>50</span></div>
+        <div class="grid-l" style="top:75%"><span>25</span></div>
+        <div class="groups">
+          <div class="group">
+            <div class="bar" style="--h:100"><span class="tip">100x</span>
+              <div class="note-hand" style="left:calc(100% + 26px);top:6px">Trofyx responde<br>en segundos ⚡
+                <svg viewBox="0 0 80 40" style="left:-30px;top:30px;width:60px;color:#E53935" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M74 6 C50 30 30 34 8 30"/><path d="M16 22 L6 30 L17 36"/></svg>
+              </div>
+            </div>
+            <div class="bar muted" style="--h:1"><span class="tip">1x</span></div>
+          </div>
+          <div class="group">
+            <div class="bar" style="--h:21"><span class="tip">21x</span></div>
+            <div class="bar muted" style="--h:1"><span class="tip">1x</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="xlabels">
+        <div><div class="xs"><span>5 min</span><span>30 min</span></div><div class="xg">Contactar al lead</div></div>
+        <div><div class="xs"><span>5 min</span><span>30 min</span></div><div class="xg">Calificar al lead</div></div>
+      </div>
+      <div class="legend"><span><i style="background:#1A80FF"></i>Respuesta en 5 minutos</span><span><i style="background:#8A94A3"></i>Respuesta en 30 minutos</span></div>
+    </div>
+    <p class="source">Fuente: Lead Response Management Study — Dr. James Oldroyd (MIT) e InsideSales.com</p>
+  </div>
+</section>
+
+<!-- ======================= MECANISMO DETRÁS DEL PROBLEMA ======================= -->
+<section class="section center">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="h2">Por qué contratar otro asesor (o instalar un chatbot de botones) <span class="hl">no lo soluciona</span></h2>
+      <p class="lead narrow" style="margin-top:22px">Seguramente ya probaste alguna de estas opciones, o la estás pensando. Así falla cada una:</p>
+    </div>
+    <div class="why reveal">
+      <div class="why-card">
+        <span class="tag">Opción 1 · Por qué falla</span>
+        <h3>Contratar más asesores</h3>
+        <p>Cada asesor atiende un chat a la vez, trabaja en horario de oficina y te cuesta un salario cada mes. Cuando llegan muchos mensajes juntos, igual se satura… y de noche no hay nadie.</p>
+      </div>
+      <div class="why-card">
+        <span class="tag">Opción 2 · Por qué falla</span>
+        <h3>WhatsApp Business en el celular</h3>
+        <p>Sirve con pocos chats. Con un equipo, los mensajes quedan repartidos en varios teléfonos, nadie le hace seguimiento a nadie y no sabes cuántas ventas se perdieron.</p>
+      </div>
+      <div class="why-card">
+        <span class="tag">Opción 3 · Por qué falla</span>
+        <h3>Un chatbot de menús y botones</h3>
+        <p>“Marque 1 para precios, 2 para horarios”. Tus clientes no hablan así: preguntan con sus palabras, mandan audios y se van cuando el bot no les entiende.</p>
+      </div>
+      <div class="why-card">
+        <span class="tag">Opción 4 · Por qué falla</span>
+        <h3>Apps no oficiales de envíos masivos</h3>
+        <p>Prometen mensajes baratos e ilimitados, pero no usan la API oficial de Meta y ponen en riesgo tu número. Si te lo bloquean, te quedas sin tu canal de ventas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 6 · SOLUCIÓN: SISTEMA CERO VISTO ======================= -->
+<section class="s-mech section center" id="sistema">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Así funciona Trofyx</p>
+      <h2 class="h2">Te presentamos el <span class="hl">Sistema Cero Visto</span>: ningún cliente vuelve a quedarse sin respuesta</h2>
+      <p class="lead narrow" style="margin-top:22px">Es la forma en que Trofyx une un agente de IA entrenado con tu negocio, tu equipo y la API oficial de Meta para que cada chat termine en una venta, una cita o un seguimiento. Funciona en 4 pasos:</p>
+    </div>
+    <div class="mech">
+      <div class="step reveal"><span class="num">1</span><div>
+        <h3>Responde en segundos, 24/7</h3>
+        <p>Tu agente contesta con tu catálogo, tus precios y tu tono de marca, de día y de noche. Y entiende las notas de voz.</p>
+        <span class="fix">✓ Adiós a los asesores saturados y a los clientes esperando hasta el otro día</span>
+      </div></div>
+      <div class="step reveal"><span class="num">2</span><div>
+        <h3>Califica a cada cliente</h3>
+        <p>Detecta qué quiere cada persona y qué tan lista está para comprar, y la mueve por tu embudo de ventas.</p>
+        <span class="fix">✓ Tu equipo deja de perder el día con curiosos</span>
+      </div></div>
+      <div class="step reveal"><span class="num">3</span><div>
+        <h3>Agenda y hace seguimiento solo</h3>
+        <p>Agenda citas en tu Google Calendar, envía recordatorios y le vuelve a escribir a quien te dijo “lo pienso”.</p>
+        <span class="fix">✓ Cero leads olvidados y menos citas a las que nadie llega</span>
+      </div></div>
+      <div class="step reveal"><span class="num">4</span><div>
+        <h3>Le pasa a tu equipo al cliente listo</h3>
+        <p>Cuando hace falta una persona, el agente pasa la conversación a tu asesor en la bandeja compartida, con todo el historial. Y todo corre sobre la API oficial de Meta.</p>
+        <span class="fix">✓ Nada de chats perdidos entre celulares, bots que no entienden ni apps que te bloquean</span>
+      </div></div>
+    </div>
+
+    <div class="mech-note reveal">
+      <p><b>⚡ ¿Y configurarlo?</b> Menos de 5 minutos con nuestro asistente de IA, que te ayuda paso a paso. ¿Prefieres no tocar nada? Nuestro equipo te lo deja listo en 72 horas, gratis con tu plan.</p>
+      <!-- PENDIENTE (Paso 09): poner aquí un video de pantalla de 30–60 s configurando un agente con el asistente en menos de 5 minutos -->
+    </div>
+
+    <div class="vs-grid reveal">
+      <div class="vs-col old">
+        <h4>Lo que haces hoy</h4>
+        <div class="vs-list">
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M15 15l14 14M29 15L15 29" stroke-linecap="round"/></svg><span>Contratar más asesores para contestar el mismo “¿precio?” todo el día.</span></div>
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M15 15l14 14M29 15L15 29" stroke-linecap="round"/></svg><span>Responder horas después, cuando el cliente ya le compró a otro.</span></div>
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M15 15l14 14M29 15L15 29" stroke-linecap="round"/></svg><span>Perder chats entre cinco celulares y WhatsApp Web.</span></div>
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M15 15l14 14M29 15L15 29" stroke-linecap="round"/></svg><span>Olvidar el seguimiento a los que dijeron “lo pienso”.</span></div>
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M15 15l14 14M29 15L15 29" stroke-linecap="round"/></svg><span>Arriesgar tu número con apps no oficiales.</span></div>
+          <div class="vs-spacer"></div>
+          <div class="vout">🔥 Ventas perdidas y equipo quemado</div>
+        </div>
+      </div>
+      <div class="vs-col new">
+        <h4>Con el Sistema Cero Visto</h4>
+        <div class="vs-list">
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#242229" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M14.5 22.5l5 5 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Un agente de IA responde en segundos con tu catálogo y tus precios reales.</span></div>
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#242229" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M14.5 22.5l5 5 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Contesta a todos a la vez, a cualquier hora.</span></div>
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#242229" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M14.5 22.5l5 5 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Todo tu equipo atiende desde una sola bandeja compartida.</span></div>
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#242229" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M14.5 22.5l5 5 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Seguimiento automático a cada lead, sin que nadie tenga que acordarse.</span></div>
+          <div class="vcard"><svg viewBox="0 0 44 44" fill="none" stroke="#242229" stroke-width="2.6"><circle cx="22" cy="22" r="19"/><path d="M14.5 22.5l5 5 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg><span>API oficial de Meta: sin el riesgo de las apps no oficiales.</span></div>
+          <div class="vs-spacer"></div>
+          <div class="vout">🤑 Más cierres con el mismo equipo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block reveal">
+      <div class="pmini"><span class="av" style="background:#475467">IP</span><div><q><b>Nuestros clientes piden cotizaciones a toda hora.</b> La IA califica cada contacto y nos pasa solo los que están listos para comprar.</q><small><span class="stars">★★★★★</span> Inox Pro · Productos en acero inoxidable</small></div></div>
+      <a class="btn" href="#sesion">Quiero ver el Sistema Cero Visto en mi negocio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div><a class="alt-link" href="#inicio">o mira primero el video de 57 segundos ↑</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= EJEMPLOS (cómo responde el agente) ======================= -->
+<section class="s-examples center" aria-label="Ejemplos de conversaciones atendidas por un agente de IA de Trofyx">
+  <div class="container reveal">
+    <h2 class="h2">¿Funciona en tu tipo de negocio? <span class="hl">Mira cómo responde</span> en 8 industrias distintas</h2>
+    <p class="lead narrow" style="margin-top:20px">Clínicas, restaurantes, inmobiliarias, academias, concesionarios, tiendas, spas y gimnasios: el mismo agente, entrenado con la información de cada negocio.</p>
+  </div>
+  <div class="mq-wrap">
+    <div class="mq-row"><div class="mq" style="--speed:80s" data-dup>
+      <div class="cr"><div class="cr-in chat">
+        <div class="chat-top"><span class="av" style="background:#0EA5E9">CS</span><div><b>Clínica Sonrisa</b><small>Agente IA · en línea</small></div></div>
+        <div class="chat-body"><div class="bub u">Hola, ¿tienen cita para limpieza mañana?</div><div class="bub a">¡Hola! 😊 Sí, tengo 10:00 a. m. o 3:30 p. m. ¿Cuál prefieres?</div><div class="bub u">3:30 porfa</div><div class="evt p">📅 Cita agendada · mañana 3:30 p. m.</div></div>
+      </div></div>
+      <div class="cr"><div class="cr-in chat">
+        <div class="chat-top"><span class="av" style="background:#F97316">CM</span><div><b>Ceviches del Mar</b><small>Agente IA · en línea</small></div></div>
+        <div class="chat-body"><div class="bub u">¿Hacen domicilios hoy?</div><div class="bub a">¡Claro! 🍤 Aquí tienes nuestro menú. ¿Qué te gustaría pedir?</div><div class="bub u">2 ceviches mixtos</div><div class="evt g">✅ Pedido confirmado</div></div>
+      </div></div>
+      <div class="cr"><div class="cr-in"><img src="assets/func-f-4.webp" alt="Agenda de citas de Trofyx" loading="lazy" width="280" height="280"></div></div>
+      <div class="cr"><div class="cr-in chat">
+        <div class="chat-top"><span class="av" style="background:#16A34A">IH</span><div><b>Inmobiliaria Horizonte</b><small>Agente IA · en línea</small></div></div>
+        <div class="chat-body"><div class="bub u">Busco apto de 2 habitaciones en el norte</div><div class="bub a">Tengo 3 opciones en tu presupuesto 🏠 ¿Agendamos visita el sábado?</div><div class="evt">🔥 Lead calificado · alta intención</div></div>
+      </div></div>
+      <div class="cr"><div class="cr-in chat">
+        <div class="chat-top"><span class="av" style="background:#7C3AED">IP</span><div><b>Idiomas Plus</b><small>Agente IA · en línea</small></div></div>
+        <div class="chat-body"><div class="bub u">¿Cuánto cuesta el curso de inglés?</div><div class="bub a">El intensivo incluye clases en vivo y certificado 🇺🇸 ¿Te envío horarios y precio?</div><div class="bub u">Sí, por favor</div><div class="evt p">📝 Inscripción en proceso</div></div>
+      </div></div>
+      <div class="cr"><div class="cr-in"><img src="assets/func-f-5.webp" alt="CRM de clientes de Trofyx" loading="lazy" width="280" height="280"></div></div>
+    </div></div>
+
+    <div class="mq-row"><div class="mq right" style="--speed:90s" data-dup>
+      <div class="cr"><div class="cr-in chat">
+        <div class="chat-top"><span class="av" style="background:#DC2626">AP</span><div><b>Autos Premier</b><small>Agente IA · en línea</small></div></div>
+        <div class="chat-body"><div class="bub u">¿El Mazda 3 sigue disponible?</div><div class="bub a">¡Sí! 🚗 Te comparto fotos y precio. ¿Quieres agendar un test drive?</div><div class="evt">📅 Test drive · jueves 4:00 p. m.</div></div>
+      </div></div>
+      <div class="cr"><div class="cr-in chat">
+        <div class="chat-top"><span class="av" style="background:#DB2777">HM</span><div><b>Hogar &amp; Moda</b><small>Agente IA · en línea</small></div></div>
+        <div class="chat-body"><div class="bub u">¿Tienen este sofá en gris?</div><div class="bub a">Sí, en gris y beige 🛋️ Te envío el catálogo con precios.</div><div class="bub u">¡Me encanta el gris!</div><div class="evt g">🛒 Listo para comprar</div></div>
+      </div></div>
+      <div class="cr"><div class="cr-in"><img src="assets/func-f-7.webp" alt="Automatizaciones de Trofyx" loading="lazy" width="280" height="280"></div></div>
+      <div class="cr"><div class="cr-in chat">
+        <div class="chat-top"><span class="av" style="background:#0D9488">SB</span><div><b>Spa Bienestar</b><small>Agente IA · en línea</small></div></div>
+        <div class="chat-body"><div class="bub a">Hola Laura 👋 Te recordamos tu masaje mañana a las 11:00 a. m. ¿Confirmas?</div><div class="bub u">¡Confirmo! 🙌</div><div class="evt p">🔔 Recordatorio automático</div></div>
+      </div></div>
+      <div class="cr"><div class="cr-in chat">
+        <div class="chat-top"><span class="av" style="background:#2563EB">GF</span><div><b>Gym Fuerza</b><small>Agente IA · en línea</small></div></div>
+        <div class="chat-body"><div class="bub u">Son las 11 p. m., ¿todavía puedo inscribirme?</div><div class="bub a">¡Claro! 💪 Te dejo los planes y el link de pago. Empiezas mañana.</div><div class="evt g">💳 Pago enviado</div></div>
+      </div></div>
+      <div class="cr"><div class="cr-in"><img src="assets/func-f-2.webp" alt="Configuración del agente de IA de Trofyx" loading="lazy" width="280" height="280"></div></div>
+    </div></div>
+  </div>
+  <p class="mq-note container">Conversaciones de ejemplo para mostrar cómo responde un agente de Trofyx.</p>
+</section>
+
+<!-- ======================= 7 · CREDENCIALES ======================= -->
+<section class="s-creds section center">
+  <div class="container">
+    <h2 class="h2 reveal">¿Quién está detrás de Trofyx y <span class="hl">por qué deberías escucharnos?</span></h2>
+    <div class="founders reveal">
+      <figure class="founder"><img src="assets/fundador-johan.webp" alt="Johan Andrey Chaverra Guevara, cofundador de Trofyx" width="480" height="480" loading="lazy"><figcaption><b>Johan Andrey Chaverra Guevara</b><small>Cofundador · Ingeniero de software</small></figcaption></figure>
+      <figure class="founder"><img src="assets/fundador-jorge.webp" alt="Jorge Luis Sepúlveda Restrepo, cofundador de Trofyx" width="480" height="480" loading="lazy"><figcaption><b>Jorge Luis Sepúlveda Restrepo</b><small>Cofundador · Ingeniero de software</small></figcaption></figure>
+    </div>
+    <div class="creds-copy reveal">
+      <p class="lead">Somos Johan y Jorge, ingenieros de software con más de 5 años de experiencia, expertos en inteligencia artificial y en Meta. Hemos creado software y soluciones para más de 100 negocios, y construimos Trofyx para que el tuyo deje de perder ventas en WhatsApp.</p>
+      <p class="creds-note">Sí, somos los mismos Johan y Jorge que menciona Héctor en <a href="#testimonios">su testimonio</a>.</p>
+      <ul>
+        <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span><b>Más de 5 años</b> creando software como ingenieros.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span><b>Soluciones para más de 100 negocios.</b></span></li>
+        <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span><b>Expertos en IA y en Meta:</b> trabajamos con la API oficial de WhatsApp Business, no con apps no oficiales.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Nuestros clientes envían <b>más de 10.000 mensajes cada mes</b> desde Trofyx.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 8 · BENEFICIOS ======================= -->
+<section class="s-benefits section" id="funciones">
+  <div class="container">
+    <div class="split reveal">
+      <div>
+        <h2 class="h3">Atiende a cada cliente en segundos, incluso a las 11 de la noche</h2>
+        <p>Mientras tu equipo duerme, almuerza o atiende a otra persona, tu agente de IA responde con tu catálogo, tus precios y tu tono de marca.</p>
+        <p>Sin respuestas de robot. Sin clientes esperando. Sin ventas que se van con la competencia.</p>
+      </div>
+      <div class="split-media">
+        <span class="fb-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28z"/></svg></span>
+        <img src="assets/func-f-2.webp" alt="Pantalla de configuración del agente de IA de Trofyx" loading="lazy">
+      </div>
+    </div>
+
+    <div class="split rev reveal">
+      <div>
+        <h2 class="h3">Deja de perder ventas por el “lo pienso” al que nadie volvió a escribir</h2>
+        <p>Trofyx reúne todos tus chats en una bandeja compartida y asigna cada conversación a un asesor de tu equipo.</p>
+        <p>Y a quien no respondió, le hace seguimiento automático. Ningún lead se queda en visto.</p>
+      </div>
+      <div class="split-media"><img src="assets/func-f-1.webp" alt="Bandeja compartida de conversaciones de Trofyx" loading="lazy"></div>
+    </div>
+
+    <div class="split reveal">
+      <div>
+        <h2 class="h3">Un agente que conoce tu negocio como tu mejor vendedor (y sabe cuándo pasarte el chat)</h2>
+        <p>Lo entrenas con tu información real: catálogo, precios, preguntas frecuentes, documentos y políticas.</p>
+        <p>Así responde con tus datos exactos… y cuando la conversación necesita a una persona, se la pasa a tu equipo.</p>
+      </div>
+      <div class="split-media"><img src="assets/func-f-3.webp" alt="Base de conocimiento del agente de IA de Trofyx" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-sell">
+  <div class="sell reveal">
+    <div class="sell-copy">
+      <h2 class="h2">Tú solo ves llegar a los clientes <span class="hl">listos para comprar</span></h2>
+      <p>Tu agente detecta qué quiere cada cliente, le responde con la información exacta, resuelve sus dudas y lo lleva a la compra o a la cita.</p>
+      <p>Cuando está listo, te lo pasa calificado y con todo el historial de la conversación.</p>
+      <div class="pmini"><span class="av" style="background:#0D9488">SB</span><div><q><b>Los recordatorios automáticos redujeron muchísimo las inasistencias,</b> y nuestros pacientes reciben respuesta a cualquier hora.</q><small><span class="stars">★★★★★</span> Salud y Bienestar</small></div></div>
+      <a class="btn" href="#sesion">Reclama tu sesión gratis de 30 minutos</a>
+    </div>
+    <div class="sell-media">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="chat">
+          <div class="chat-top"><span class="av" style="background:#16A34A">IH</span><div><b>Inmobiliaria Horizonte</b><small>Agente IA · en línea</small></div></div>
+          <div class="chat-body">
+            <div class="bub u">¡Hola! Vi el anuncio del apartamento en el norte 🏠<time>10:02</time></div>
+            <div class="bub a">¡Hola Andrea! 👋 ¿Lo buscas para vivir o para invertir?<time>10:02</time></div>
+            <div class="bub u">Para vivir, somos 3 personas<time>10:03</time></div>
+            <div class="bub a">Perfecto. Tengo 2 opciones de 3 habitaciones dentro de tu presupuesto. ¿Te muestro fotos y agendamos visita el sábado?<time>10:03</time></div>
+            <div class="bub u">Sí, el sábado en la mañana 🙌<time>10:04</time></div>
+            <div class="evt p">📅 Visita agendada · sáb 10:00 a. m.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lead-card">
+        <div class="lc-h">Lead calificado <span>🔥 Caliente</span></div>
+        <div class="lc-n"><span class="av" style="background:#7B26FA;width:36px;height:36px">AM</span><div><b>Andrea M.</b><small>vía WhatsApp · Meta Ads</small></div></div>
+        <div class="lc-row"><span>Interés</span><b>Apto 3 hab · Norte</b></div>
+        <div class="lc-row"><span>Asignado a</span><b>Carlos (asesor)</b></div>
+        <div class="lc-row" style="display:block"><span>Intención de compra</span><div class="meter"><i></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= POR DENTRO: CAPTURAS + FUNCIONES ======================= -->
+<section class="s-inside section center">
+  <div class="container reveal">
+    <h2 class="h2">Todo lo que necesitas para vender por WhatsApp, <span class="hl">en un solo lugar</span></h2>
+    <p class="lead narrow" style="margin-top:20px">Esto es lo que vas a ver al entrar a Trofyx. Sin escribir una línea de código.</p>
+  </div>
+  <div class="shots">
+    <div class="mq-row"><div class="mq" style="--speed:60s" data-dup>
+      <div class="shot"><img src="assets/func-f-1.webp" alt="Conversaciones" loading="lazy"></div>
+      <div class="shot"><img src="assets/func-f-2.webp" alt="Agente IA" loading="lazy"></div>
+      <div class="shot"><img src="assets/func-f-3.webp" alt="Base de conocimiento" loading="lazy"></div>
+      <div class="shot"><img src="assets/func-f-4.webp" alt="Agenda" loading="lazy"></div>
+      <div class="shot"><img src="assets/func-f-5.webp" alt="CRM" loading="lazy"></div>
+      <div class="shot"><img src="assets/func-f-6.webp" alt="Mensajes masivos" loading="lazy"></div>
+      <div class="shot"><img src="assets/func-f-7.webp" alt="Automatizaciones" loading="lazy"></div>
+      <div class="shot"><img src="assets/func-f-8.webp" alt="Administración" loading="lazy"></div>
+    </div></div>
+  </div>
+  <div class="container">
+    <div class="feats reveal">
+      <div class="feat">
+        <h3>Agentes de IA</h3>
+        <ul>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Los configuras en menos de 5 minutos con ayuda de nuestro asistente de IA.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Responden, califican y agendan 24/7 con tu catálogo y tus precios reales.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Tus clientes mandan audios y el agente igual responde: transcribe las notas de voz.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Aprenden de tus documentos (base de conocimiento RAG) para responder con tu información.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Le pasan la conversación a tu equipo cuando hace falta (Pro IA y Business IA).</span></li>
+        </ul>
+      </div>
+      <div class="feat">
+        <h3>Bandeja compartida</h3>
+        <ul>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Todo tu equipo atiende desde una sola bandeja: se acabaron los chats perdidos entre celulares.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Etiquetas, filtros y asignación por asesor para saber quién atiende a quién.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Inbox en tiempo real, con el historial completo de cada cliente.</span></li>
+        </ul>
+      </div>
+      <div class="feat">
+        <h3>CRM, campañas y agenda</h3>
+        <ul>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Ficha automática de cada cliente con etiquetas y embudos, para saber en qué va cada venta.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Mensajes masivos con plantillas aprobadas por Meta, para venderle otra vez a quien ya te compró.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Agenda sincronizada con Google Calendar y recordatorios, para que tus citas sí lleguen.</span></li>
+          <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span>Automatizaciones y formularios sin escribir código.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 9 · PRUEBA ======================= -->
+<section class="s-proof section center" id="testimonios" aria-label="Testimonios de clientes">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="h2">Restaurantes, agencias y tiendas que ya <span class="hl">dejaron de perder clientes</span> en WhatsApp</h2>
+      <p class="lead narrow" style="margin-top:20px">No te lo decimos nosotros. Dale play y escúchalo de nuestros clientes.</p>
+    </div>
+
+    <div class="vgrid reveal">
+      <article class="vt">
+        <div class="vt-media" data-video="assets/testimonio-hector.mp4" role="button" tabindex="0" aria-label="Reproducir el testimonio de Héctor Jairo Patiño Osorio (1 minuto 42 segundos)">
+          <img src="assets/testimonio-hector.webp" alt="Héctor Jairo Patiño Osorio, cliente de Trofyx" loading="lazy" width="480" height="854">
+          <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span>
+          <span class="vtime">▶ 1:42</span>
+        </div>
+        <div class="vt-body">
+          <q>Ha habido un filtro de todas las personas que llegan… y el mismo agente de inteligencia artificial ha agendado la reunión, sin tener yo que hacer nada.</q>
+          <div class="vt-who"><b>Héctor Jairo Patiño Osorio</b><small>Red de mercadeo · hace pauta publicitaria</small></div>
+        </div>
+      </article>
+      <article class="vt">
+        <div class="vt-media" data-video="assets/testimonio-martha.mp4" role="button" tabindex="0" aria-label="Reproducir el testimonio de Martha, de Ceviche Said (34 segundos)">
+          <img src="assets/testimonio-martha.webp" alt="Martha, de Ceviche Said, cliente de Trofyx" loading="lazy" width="480" height="854">
+          <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span>
+          <span class="vtime">▶ 0:34</span>
+        </div>
+        <div class="vt-body">
+          <p class="vt-hook">Escucha a Martha contar su experiencia con Trofyx en su restaurante.</p>
+          <div class="vt-who"><b>Martha</b><small>Ceviche Said · Restaurante</small></div>
+        </div>
+      </article>
+      <article class="vt">
+        <div class="vt-media" data-video="assets/testimonio-javier.mp4" role="button" tabindex="0" aria-label="Reproducir el testimonio de Javier Valencia (53 segundos)">
+          <img src="assets/testimonio-javier.webp" alt="Javier Valencia, cliente de Trofyx" loading="lazy" width="480" height="854">
+          <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span>
+          <span class="vtime">▶ 0:53</span>
+        </div>
+        <div class="vt-body">
+          <p class="vt-hook">Escucha a Javier contar su experiencia con Trofyx.</p>
+          <div class="vt-who"><b>Javier Valencia</b><small>Agencia de marketing</small></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="tgrid reveal">
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Nuestros clientes piden cotizaciones a toda hora.</b> La IA califica cada contacto y nos pasa solo los que están listos para comprar.</q></div><div class="tperson"><span class="av" style="background:#475467">IP</span><div><b>Inox Pro</b><small>Productos en acero inoxidable</small></div></div></article>
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Los recordatorios automáticos redujeron muchísimo las inasistencias,</b> y nuestros pacientes reciben respuesta a cualquier hora.</q></div><div class="tperson"><span class="av" style="background:#0D9488">SB</span><div><b>Salud y Bienestar</b><small>Salud y bienestar</small></div></div></article>
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Creamos nuestro menú de restaurante directo en WhatsApp.</b> Ahora los clientes ven los platos y hacen su pedido sin esperar a que alguien les responda.</q></div><div class="tperson"><span class="av" style="background:#F97316">CS</span><div><b>Ceviche Said</b><small>Restaurante</small></div></div></article>
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Manejamos el WhatsApp de varias marcas desde una sola bandeja.</b> Los envíos masivos y los embudos nos ahorran horas cada semana.</q></div><div class="tperson"><span class="av" style="background:#7C3AED">WM</span><div><b>Wapo Marketing</b><small>Agencia de marketing</small></div></div></article>
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Con el catálogo y las campañas por WhatsApp vendemos más que nunca.</b> Es muy fácil de usar para todo el equipo.</q></div><div class="tperson"><span class="av" style="background:#DB2777">HM</span><div><b>Hogar y Moda</b><small>Tienda de hogar y moda</small></div></div></article>
+      <figure class="tcard shot-card">
+        <img src="assets/testimonio-whatsapp-70.webp" alt="Captura de WhatsApp de un cliente: Sí la verdad nos ha ido muy bien con trofyx. Literalmente hemos aumentado nuestras ventas en un 70%" width="804" height="563" loading="lazy">
+        <figcaption><b>📸 Captura real de WhatsApp de un cliente</b><small>“Literalmente hemos aumentado nuestras ventas en un 70%”. Resultado reportado por el cliente; puede variar según cada negocio.</small></figcaption>
+      </figure>
+    </div>
+
+    <div class="reveal" style="margin-top:96px">
+      <h3 class="h3">Tu WhatsApp antes y después del Sistema Cero Visto</h3>
+    </div>
+    <div class="results">
+      <div class="res reveal">
+        <div class="res-left">
+          <div class="hand">Con Trofyx <svg viewBox="0 0 70 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 14 C24 10 44 10 62 12"/><path d="M52 4 L63 12 L52 20"/></svg></div>
+          <div class="hand">Sin Trofyx <svg viewBox="0 0 70 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 14 C24 10 44 10 62 12"/><path d="M52 4 L63 12 L52 20"/></svg></div>
+        </div>
+        <div class="am"><table>
+          <tr><th>Tiempo de 1.ª respuesta</th><th>Horario de atención</th><th>Chats a la vez</th></tr>
+          <tr class="k"><td><span class="circled">Segundos</span></td><td>24/7</td><td>Todos</td></tr>
+          <tr class="b"><td>Horas</td><td>Lun–Vie, 8 a 6</td><td>1 por asesor</td></tr>
+        </table></div>
+        <div class="res-right hand"><svg viewBox="0 0 70 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="transform:scaleX(-1)"><path d="M4 14 C24 10 44 10 62 12"/><path d="M52 4 L63 12 L52 20"/></svg><span>respuesta al instante ⚡</span></div>
+      </div>
+
+      <div class="res reveal">
+        <div class="res-left">
+          <div class="hand">Con Trofyx <svg viewBox="0 0 70 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 14 C24 10 44 10 62 12"/><path d="M52 4 L63 12 L52 20"/></svg></div>
+          <div class="hand">Sin Trofyx <svg viewBox="0 0 70 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 14 C24 10 44 10 62 12"/><path d="M52 4 L63 12 L52 20"/></svg></div>
+        </div>
+        <div class="am"><table>
+          <tr><th>Seguimiento a leads</th><th>Citas</th><th>Recordatorios</th></tr>
+          <tr class="k"><td><span class="circled">Automático</span></td><td>Agendadas por IA</td><td>Automáticos</td></tr>
+          <tr class="b"><td>Si alguien se acuerda</td><td>Chat por chat</td><td>—</td></tr>
+        </table></div>
+        <div class="res-right hand"><svg viewBox="0 0 70 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="transform:scaleX(-1)"><path d="M4 14 C24 10 44 10 62 12"/><path d="M52 4 L63 12 L52 20"/></svg><span>cero leads olvidados</span></div>
+      </div>
+
+      <div class="res reveal">
+        <div class="res-left">
+          <div class="hand">Con Trofyx <svg viewBox="0 0 70 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 14 C24 10 44 10 62 12"/><path d="M52 4 L63 12 L52 20"/></svg></div>
+          <div class="hand">Sin Trofyx <svg viewBox="0 0 70 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 14 C24 10 44 10 62 12"/><path d="M52 4 L63 12 L52 20"/></svg></div>
+        </div>
+        <div class="am"><table>
+          <tr><th>Notas de voz</th><th>Mensajes masivos</th><th>Tu número</th></tr>
+          <tr class="k"><td><span class="circled">Transcritas</span></td><td>Miles en 1 clic</td><td>API oficial de Meta</td></tr>
+          <tr class="b"><td>Alguien debe oírlas</td><td>Uno por uno</td><td>En riesgo con apps no oficiales</td></tr>
+        </table></div>
+        <div class="res-right hand"><svg viewBox="0 0 70 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" style="transform:scaleX(-1)"><path d="M4 14 C24 10 44 10 62 12"/><path d="M52 4 L63 12 L52 20"/></svg><span>sin apps piratas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 10–16 · OFERTA: VENDE LA LLAMADA ======================= -->
+<section class="s-offer section" id="sesion">
+  <div class="container">
+    <div class="offer reveal">
+      <span class="offer-tag">Para negocios que venden por WhatsApp</span>
+      <h2 class="h2">Agenda tu sesión gratis de 30 minutos y en 72 horas tu WhatsApp <span class="hl">empieza a vender solo</span></h2>
+      <p>No es una llamada para presionarte. En 30 minutos revisamos tu WhatsApp contigo y te mostramos cómo respondería tu agente a tus clientes. Si decides activarlo, lo configuras tú en menos de 5 minutos o nuestro equipo te lo deja funcionando. Si no, igual te vas con un plan claro.</p>
+
+      <h3 class="offer-sub">En la sesión te llevas:</h3>
+      <ul class="offer-list">
+        <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span><b>Revisamos cómo atiendes hoy tu WhatsApp:</b> cuánto tardas en responder, dónde se quedan los chats sin respuesta y qué preguntas se repiten todo el día.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span><b>Te mostramos en vivo cómo respondería un agente de IA</b> a las preguntas que más te hacen tus clientes.</span></li>
+        <li><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span><span><b>Te llevas un plan paso a paso</b> para automatizar tu atención, tu agenda y tu seguimiento, y te decimos qué plan te conviene… o si Trofyx no es para ti.</span></li>
+      </ul>
+
+      <h3 class="offer-sub">Y cuando lo actives, tienes dos caminos para dejarlo vendiendo:</h3>
+      <div class="paths">
+        <div class="path">
+          <span class="path-tag">Camino 1 · Hazlo tú</span>
+          <h4>⚡ Listo en menos de 5 minutos</h4>
+          <p>Nuestro asistente de IA te ayuda a configurar tu agente paso a paso. Muy fácil, aunque no sepas de tecnología.</p>
+        </div>
+        <div class="path pro">
+          <span class="path-tag">Camino 2 · Lo hacemos por ti · Gratis</span>
+          <h4>🙌 Listo en 72 horas, sin que muevas un dedo</h4>
+          <p>Nuestro equipo te deja todo funcionando:</p>
+          <ul class="stack">
+            <li><span class="ico">🤖</span><span>Tu agente de IA configurado y respondiendo</span></li>
+            <li><span class="ico">🛍️</span><span>Tu catálogo cargado y listo para vender</span></li>
+            <li><span class="ico">📲</span><span>Tu número conectado a la API oficial de Meta</span></li>
+            <li><span class="ico">💬</span><span>Hasta 5 plantillas de WhatsApp listas para tus campañas</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="value">
+        <span>Valor normal del Camino 2, hecho por nuestro equipo: <s>$1.000.000 COP</s></span>
+        <span class="free">Hoy: $0</span>
+      </div>
+      <p class="guar-line">🛡️ Listo en 72 horas o te devolvemos tu primer mes · 30 días de garantía de devolución · Sin permanencia</p>
+      <p class="scarcity">⏳ Cada agente lo configura una persona de nuestro equipo, por eso los cupos de configuración gratis son limitados cada semana. Cupos abiertos para la semana <b data-week>actual</b>. Si se llenan, tu configuración pasa a la semana siguiente.</p>
+
+      <div class="cta-in">
+        <div class="pmini"><img class="avimg" src="assets/testimonio-hector.webp" alt="" loading="lazy" width="44" height="44"><div><q><b>A mí me han acompañado… en todo el proceso, ayudándome en hacer cambios.</b> Yo lo recomiendo al 100%.</q><small>Héctor Jairo Patiño Osorio · Red de mercadeo · <a href="#testimonios" style="color:var(--eyebrow);text-decoration:underline">▶ Ver su video</a></small></div></div>
+        <a class="btn" href="https://forms.trofyx.com/f/agenda-tu-cita-2">Sí, quiero mi sesión gratis de 30 minutos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="proofline"><div>📅 Eliges el horario que te sirva · Sin compromiso de compra</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 13 · PRECIO + 15 · GARANTÍA ======================= -->
+<section class="s-pricing section center" id="precios">
+  <div class="container">
+    <div class="reveal">
+      <span class="pill-top">Planes sin permanencia</span>
+      <h2 class="h2">¿Ya lo tienes claro? Activa tu agente hoy y <span class="hl">te lo dejamos listo gratis</span></h2>
+      <p class="lead">Todos los planes funcionan con la <b>API oficial de Meta</b>. Cobro mensual y automático por Mercado Pago, y <b>cancelas cuando quieras.</b> ¿No sabes cuál elegir? <a href="#sesion">Te ayudamos en la sesión gratis.</a></p>
+    </div>
+    <div class="toggle-wrap">
+      <span class="toggle-note">⚡ Más ventas con IA</span>
+      <div class="toggle" role="tablist" aria-label="Línea de planes">
+        <button role="tab" data-line="msg">Sin IA</button>
+        <button role="tab" data-line="ia" class="on">Con agente IA</button>
+      </div>
+    </div>
+    <div class="plans" id="plans" style="text-align:left"></div>
+    <div class="pnotes">
+      <p>* Precios en pesos colombianos (COP). El valor en USD es aproximado.</p>
+      <p>Las plantillas de WhatsApp las cobra Meta directamente, no Trofyx: ~$50 COP por mensaje de marketing y ~$20 COP por mensaje de utilidad.</p>
+      <p>¿Pago anual? Tienes 17% de descuento: solicítalo a nuestro equipo por WhatsApp.</p>
+    </div>
+
+    <div class="guarantee reveal">
+      <svg class="laurel" data-laurel viewBox="0 0 100 170" aria-hidden="true"></svg>
+      <h2 class="h2">Triple garantía:<br><span class="hl">el riesgo es nuestro</span></h2>
+      <svg class="laurel r" data-laurel viewBox="0 0 100 170" aria-hidden="true"></svg>
+    </div>
+    <div class="guar-grid reveal">
+      <div class="guar-card"><span class="gi">⏱️</span><h3>Listo en 72 horas o te devolvemos tu primer mes</h3><p>Si en 72 horas tu agente no está respondiendo con tu catálogo, te devolvemos el valor de tu primer mes y seguimos configurándolo hasta que quede listo.</p></div>
+      <div class="guar-card"><span class="gi">💸</span><h3>30 días para probarlo o te devolvemos tu dinero</h3><p>Si en los primeros 30 días Trofyx no le suma a tu negocio, te devolvemos el 100% de tu primer mes.</p></div>
+      <div class="guar-card"><span class="gi">🔓</span><h3>Sin permanencia</h3><p>Pagas mes a mes de forma automática con Mercado Pago y cancelas cuando quieras. Sin contratos.</p></div>
+    </div>
+    <p class="fine reveal">Las 72 horas cuentan desde que nos envías tu catálogo, tus precios y el acceso a tu cuenta de Meta. La aprobación de las plantillas depende de Meta. Las devoluciones aplican sobre el valor de tu primer mes.</p>
+  </div>
+</section>
+
+<!-- ======================= FAQ (objeciones primero) ======================= -->
+<section class="s-faq section">
+  <div class="container">
+    <div class="center reveal">
+      <h2 class="h2">Las dudas que tienes antes de dejar tu WhatsApp <span class="hl">en manos de una IA</span></h2>
+    </div>
+    <div class="faqs" id="faqs"></div>
+  </div>
+</section>
+
+<!-- ======================= 16 · CTA FINAL + 17 · P.D. ======================= -->
+<section class="s-final">
+  <div class="container reveal">
+    <h2 class="h2">Mientras lees esto, alguien le está escribiendo a tu WhatsApp. <span class="hl">¿Quién le va a responder?</span></h2>
+    <p class="lead">Reclama tu sesión gratis de 30 minutos. Te mostramos cómo respondería tu agente y, si lo activas, en 72 horas lo tienes vendiendo por ti sin pagar la configuración.</p>
+    <div class="pmini"><span class="av" style="background:#DB2777">HM</span><div><q><b>Con el catálogo y las campañas por WhatsApp vendemos más que nunca.</b> Es muy fácil de usar para todo el equipo.</q><small><span class="stars">★★★★★</span> Hogar y Moda · Tienda de hogar y moda</small></div></div>
+    <a class="btn" href="https://forms.trofyx.com/f/agenda-tu-cita-2">Reclama tu sesión gratis de 30 minutos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div><a class="alt-link" href="#precios">o elige tu plan y empieza hoy mismo</a></div>
+
+    <div class="ps">
+      <p><b>P.D.</b> Si solo vas a leer esto: agenda tu <b>sesión gratis de 30 minutos</b>. Si activas tu agente, lo configuras tú en menos de 5 minutos con nuestro asistente, o te lo dejamos listo en 72 horas con la configuración (normalmente $1.000.000) por nuestra cuenta y triple garantía.</p>
+      <p><b>Siguiente paso:</b> haz clic en el botón, elige un horario y ten a mano tu WhatsApp de negocio.</p>
+      <p><b>Si no haces nada:</b> mañana vas a volver a responder tarde, y cada cliente que espera le compra a quien contestó primero. Y los cupos de configuración gratis de esta semana se los lleva otro negocio.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <a href="#inicio" class="logo" aria-label="Trofyx">
+    <img class="for-light" src="assets/logo-lockup-dark.png" alt="Trofyx" loading="lazy">
+    <img class="for-dark" src="assets/logo-lockup-white.png" alt="Trofyx" loading="lazy">
+  </a>
+  <div class="socials">
+    <a href="https://www.facebook.com/profile.php?id=61573348020618" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.5h-2.8V24C19.62 23.1 24 18.1 24 12.07"/></svg></a>
+    <a href="https://www.linkedin.com/company/trofyx/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+    <a href="https://www.instagram.com/trofyx_/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.youtube.com/@Trofyx_ai" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+  </div>
+  <p class="copy">Copyright © Trofyx <span id="year">2026</span>. Todos los derechos reservados.</p>
+  <p class="flinks"><a href="https://wa.me/573014184115?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Trofyx" target="_blank" rel="noopener">Soporte</a><span>|</span><a href="https://trofyx.com/terminos.html">Términos y condiciones</a><span>|</span><a href="https://trofyx.com/privacidad.html">Política de privacidad</a></p>
+</footer>
+
+<script>
+(function () {
+  var LP_VERSION = 'a';
+  var html = document.documentElement;
+
+  /* ---------- Test A/B: pasa los UTM y la versión de la landing al formulario y al registro ---------- */
+  function tagLinks(root) {
+    var keep = [];
+    try { new URLSearchParams(location.search).forEach(function (v, k) { if (/^utm_/.test(k) || k === 'fbclid') keep.push([k, v]); }); } catch (e) {}
+    keep.push(['lp', LP_VERSION]);
+    (root || document).querySelectorAll('a[href*="forms.trofyx.com"], a[href*="trofyx.com/registro"]').forEach(function (a) {
+      try {
+        var u = new URL(a.getAttribute('href'), location.href);
+        keep.forEach(function (p) { if (!u.searchParams.has(p[0])) u.searchParams.set(p[0], p[1]); });
+        a.setAttribute('href', u.toString());
+      } catch (e) {}
+    });
+  }
+
+
+
+  /* ---------- Tema claro / oscuro ---------- */
+  document.getElementById('themeBtn').addEventListener('click', function () {
+    var dark = html.classList.toggle('dark');
+    try { localStorage.setItem('trofyx-theme', dark ? 'dark' : 'light'); } catch (e) {}
+  });
+
+  /* ---------- Header al hacer scroll ---------- */
+  var header = document.getElementById('header');
+  function onScrollHeader() { header.classList.toggle('scrolled', window.scrollY > 24); }
+  window.addEventListener('scroll', onScrollHeader, { passive: true });
+  onScrollHeader();
+
+  /* ---------- Menú móvil ---------- */
+  var burger = document.getElementById('burger'), mnav = document.getElementById('mobileNav');
+  burger.addEventListener('click', function () {
+    var open = mnav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  mnav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { mnav.classList.remove('open'); burger.setAttribute('aria-expanded', false); }); });
+
+  /* ---------- Nav activo según sección ---------- */
+  var navLinks = document.querySelectorAll('.nav a');
+  var sections = ['inicio', 'funciones', 'precios'].map(function (id) { return document.getElementById(id); });
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY + window.innerHeight * 0.35, current = 'inicio';
+    sections.forEach(function (s) { if (s && s.offsetTop <= y) current = s.id; });
+    navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  }, { passive: true });
+
+  /* ---------- Duplicar marquees para loop infinito ---------- */
+  document.querySelectorAll('[data-dup]').forEach(function (track) {
+    Array.prototype.slice.call(track.children).forEach(function (child) {
+      var c = child.cloneNode(true); c.setAttribute('aria-hidden', 'true'); track.appendChild(c);
+    });
+  });
+
+  /* ---------- Videos (VSL + testimonios): cada video solo se descarga al hacer clic ---------- */
+  document.querySelectorAll('[data-video]').forEach(function (box) {
+    function play() {
+      if (box.querySelector('video')) return;
+      var v = document.createElement('video');
+      v.src = box.getAttribute('data-video'); v.controls = true; v.autoplay = true; v.playsInline = true;
+      var img = box.querySelector('img'); if (img) v.poster = img.getAttribute('src');
+      box.appendChild(v); box.style.cursor = 'default';
+      v.play && v.play().catch(function () {});
+    }
+    box.addEventListener('click', play);
+    box.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); } });
+  });
+  /* Si se reproduce un video, se pausan los demás */
+  document.addEventListener('play', function (e) {
+    document.querySelectorAll('video').forEach(function (o) { if (o !== e.target) o.pause(); });
+  }, true);
+
+  /* ---------- Reveal on scroll ---------- */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, #chart').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal, #chart').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Laureles (SVG) ---------- */
+  document.querySelectorAll('[data-laurel]').forEach(function (svg) {
+    var g = '';
+    g += '<path d="M78 166 C30 140 14 90 30 14" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>';
+    for (var i = 0; i < 8; i++) {
+      var t = i / 8;
+      var x = 78 - 62 * t + 14 * Math.sin(t * Math.PI) * -1, y = 160 - 140 * t;
+      var ang = -120 + t * 70;
+      g += '<ellipse cx="' + (x - 12).toFixed(1) + '" cy="' + y.toFixed(1) + '" rx="15" ry="6.5" fill="currentColor" transform="rotate(' + (ang + 160) + ' ' + (x - 12).toFixed(1) + ' ' + y.toFixed(1) + ')"/>';
+      g += '<ellipse cx="' + (x + 11).toFixed(1) + '" cy="' + (y - 6).toFixed(1) + '" rx="14" ry="6" fill="currentColor" transform="rotate(' + (ang + 100) + ' ' + (x + 11).toFixed(1) + ' ' + (y - 6).toFixed(1) + ')"/>';
+    }
+    g += '<ellipse cx="30" cy="10" rx="13" ry="6" fill="currentColor" transform="rotate(-80 30 10)"/>';
+    svg.innerHTML = g;
+  });
+
+  /* ---------- Precios ---------- */
+  var REG = 'https://trofyx.com/registro.html?plan=';
+  var PLANS = {
+    ia: [
+      { name: 'Starter IA', price: '$119.000', usd: '≈ USD $40 · sin permanencia', cls: 'basic', desc: 'Para negocios que quieren dejar de perder chats y empezar a automatizar su WhatsApp.',
+        groups: [
+          { h: 'Agente de IA básico', p: 'Responde y califica a tus clientes 24/7 por WhatsApp.', li: ['<b>2.000</b> mensajes de IA al mes', '<b>Transcripción</b> de notas de voz', '<b>1 base</b> de conocimiento (RAG)'] },
+          { h: 'CRM y bandeja', p: 'Tu equipo atendiendo desde un solo lugar.', li: ['<b>2</b> usuarios / asesores', '<b>3.000</b> contactos en el CRM', 'Inbox <b>en tiempo real</b>', '<b>5</b> plantillas de WhatsApp y <b>1</b> embudo'] },
+          { h: 'Agenda', p: 'Citas organizadas sin ir chat por chat.', li: ['Agenda <b>inteligente</b>', 'Recordatorio de citas <b>manual</b>', 'Integración con <b>Meta Ads</b> · soporte por WhatsApp'] }
+        ] },
+      { name: 'Pro IA', price: '$219.000', usd: '≈ USD $70 · sin permanencia', cls: 'pop', tab: '🔥 MÁS POPULAR 🔥', desc: 'La mejor opción para equipos de venta que quieren automatizar todo su embudo en WhatsApp.',
+        groups: [
+          { h: 'Agente de IA completo', p: 'Embudos por etapa, lead scoring y handoff a tu equipo.', li: ['<b>4.000</b> mensajes de IA al mes', '<b>Transcripción</b> de notas de voz', '<b>Varias bases</b> de conocimiento (RAG)', '<b>Handoff</b> a humano cuando hace falta'] },
+          { h: 'CRM y campañas', p: 'Vende más a los contactos que ya tienes.', li: ['<b>5</b> usuarios / asesores', '<b>6.500</b> contactos en el CRM', '<b>Envío masivo</b> con segmentación', 'Plantillas y <b>embudos ilimitados</b>'] },
+          { h: 'Agenda e integraciones', p: 'Tus citas y tus datos, conectados.', li: ['Recordatorios de citas <b>automáticos</b>', '<b>Google Sheets</b> y <b>Webhooks</b>', '<b>3</b> formularios · soporte <b>prioritario</b>'] }
+        ] },
+      { name: 'Business IA', price: '$399.000', usd: '≈ USD $130 · sin permanencia', cls: 'pro', desc: 'Para empresas con varias sedes, equipos grandes y reglas de atención propias.',
+        groups: [
+          { h: 'Agente de IA avanzado', p: 'Multi-embudo y reglas propias para tu operación.', li: ['<b>6.000</b> mensajes de IA al mes', 'Base de conocimiento <b>ilimitada</b>', 'Handoff con <b>asignación por reglas</b>'] },
+          { h: 'CRM y campañas', p: 'Control total de tu equipo y tus sedes.', li: ['<b>8</b> usuarios / asesores', '<b>10.000</b> contactos en el CRM', 'Envío masivo con <b>segmentación</b>', 'Embudos ilimitados + <b>pruebas A/B</b>', '<b>Multisede</b>'] },
+          { h: 'Agenda e integraciones', p: 'Para operaciones que no pueden parar.', li: ['<b>Multi-calendario</b> con recordatorios automáticos', '<b>API abierta</b> + WASI nativo', '<b>8</b> formularios · <b>onboarding asistido</b>'] }
+        ] }
+    ],
+    msg: [
+      { name: 'Mensajero', price: '$69.000', usd: '≈ USD $25 · sin permanencia', cls: 'basic', desc: 'Bandeja compartida y envíos masivos para empezar a ordenar tu WhatsApp, sin IA.',
+        groups: [
+          { h: 'Mensajería', p: 'Atiende y envía campañas desde un solo lugar.', li: ['Envíos masivos <b>ilimitados</b>', 'Inbox <b>multiagente</b>', '<b>10</b> respuestas rápidas y <b>5</b> plantillas', 'Métricas de <b>entregados y leídos</b>'] },
+          { h: 'CRM', p: 'Tus contactos organizados.', li: ['<b>2</b> usuarios / asesores', '<b>500</b> contactos en el CRM', '<b>1</b> embudo básico · importar CSV'] }
+        ] },
+      { name: 'Mensajero Plus', price: '$119.000', usd: '≈ USD $40 · sin permanencia', cls: 'pop', tab: '🔥 MÁS POPULAR 🔥', desc: 'Campañas programadas, segmentación y agenda para equipos que crecen.',
+        groups: [
+          { h: 'Mensajería', p: 'Campañas más inteligentes.', li: ['Envíos masivos <b>ilimitados</b>', '<b>50</b> respuestas rápidas y <b>20</b> plantillas', 'Campañas <b>programadas</b> por fecha y hora', 'Segmentación por <b>etiquetas</b>', 'Métricas + <b>clics y respuestas</b>'] },
+          { h: 'CRM y agenda', p: 'Más equipo, más contactos.', li: ['<b>5</b> usuarios / asesores', '<b>3.000</b> contactos en el CRM', '<b>3</b> embudos y <b>1</b> calendario', 'Importar y exportar · <b>Meta Ads</b>', '<b>3</b> formularios · soporte por WhatsApp'] }
+        ] },
+      { name: 'Mensajero Max', price: '$239.000', usd: '≈ USD $80 · sin permanencia', cls: 'pro', desc: 'Todo ilimitado para operaciones de mensajería de alto volumen, sin IA.',
+        groups: [
+          { h: 'Mensajería', p: 'Sin límites para tus campañas.', li: ['Envíos, respuestas rápidas y plantillas <b>ilimitadas</b>', 'Campañas <b>recurrentes</b>', 'Métricas + <b>conversiones</b> y export CSV'] },
+          { h: 'CRM y agenda', p: 'Para equipos grandes.', li: ['<b>8</b> usuarios / asesores', '<b>6.500</b> contactos en el CRM', 'Embudos <b>ilimitados</b>', '<b>Multi-calendario</b> + recordatorios', '<b>Webhooks</b> + API abierta · <b>8</b> formularios'] }
+        ] }
+    ]
+  };
+  var CK = '<span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span>';
+  var GIFT = '<p class="gift">🎁 Te lo dejamos listo en 72 h: configuración gratis <s>$1.000.000</s></p>';
+  var plansEl = document.getElementById('plans');
+  function renderPlans(line) {
+    plansEl.innerHTML = PLANS[line].map(function (p) {
+      return '<div class="plan">' +
+        '<div class="plan-card ' + p.cls + '">' + (p.tab ? '<span class="plan-tab">' + p.tab + '</span>' : '') +
+          '<h3 class="pname">' + p.name + '</h3>' +
+          '<div class="pprice"><b>' + p.price + '</b><span>/ mes</span></div>' +
+          '<div class="pbilled">COP* · ' + p.usd + '</div>' +
+          '<p class="pdesc">' + p.desc + '</p>' + (line === 'ia' ? GIFT : '') +
+          '<a class="pbtn" href="' + REG + encodeURIComponent(p.name) + '">Empezar con ' + p.name + '</a>' +
+        '</div>' +
+        '<div class="pfeats">' + p.groups.map(function (g) {
+          return '<div class="pgroup"><h5>' + g.h + '</h5><p>' + g.p + '</p><ul>' + g.li.map(function (li) { return '<li>' + CK + '<span>' + li + '</span></li>'; }).join('') + '</ul></div>';
+        }).join('') + '</div>' +
+      '</div>';
+    }).join('');
+  }
+  document.querySelectorAll('.toggle button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.toggle button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      renderPlans(b.getAttribute('data-line')); tagLinks(plansEl);
+    });
+  });
+  renderPlans('ia');
+
+  /* ---------- FAQ: objeciones más grandes primero (validar el orden con 10 clientes) ---------- */
+  var FAQ = [
+    ['¿La IA no va a sonar como un robot o a responderle mal a mis clientes?', 'Tu agente responde con la información que tú le das: tu catálogo, tus precios, tus documentos y tus políticas (base de conocimiento). Y en los planes Pro IA y Business IA, cuando una conversación necesita a una persona, se la pasa a tu equipo con todo el historial.'],
+    ['¿Me pueden bloquear el número de WhatsApp?', 'Trofyx funciona con la API oficial de WhatsApp Business de Meta, no con apps no oficiales, que son las que ponen en riesgo tu número. Los mensajes masivos salen con plantillas aprobadas por Meta. Como en cualquier cuenta oficial, solo tienes que respetar las políticas de WhatsApp (por ejemplo, no enviar spam).'],
+    ['¿Es difícil de configurar? No sé de tecnología.', 'No hace falta saber de tecnología, y tienes dos caminos. Uno: lo configuras tú en menos de 5 minutos con nuestro asistente de IA, que te ayuda paso a paso. Dos: lo hacemos por ti. Nuestro equipo te deja en máximo 72 horas tu agente configurado, tu catálogo cargado, tu número conectado a la API oficial de Meta y hasta 5 plantillas de WhatsApp. Ese servicio normalmente vale $1.000.000 COP y hoy va gratis con tu plan con IA.'],
+    ['¿Y si no queda listo a tiempo o no me convence?', 'Tienes triple garantía. Si en 72 horas tu agente no está respondiendo con tu catálogo, te devolvemos el valor de tu primer mes y seguimos configurándolo. Si en los primeros 30 días Trofyx no le suma a tu negocio, te devolvemos el 100% de tu primer mes. Y no hay permanencia: cancelas cuando quieras.'],
+    ['¿Qué tengo que hacer yo?', 'Si lo haces tú: seguir los pasos del asistente de IA, en menos de 5 minutos. Si lo hacemos nosotros: enviarnos tu catálogo, tus precios y el acceso a tu cuenta de Meta; desde ahí cuentan las 72 horas. Si quieres, lo vemos juntos en la <a href="#sesion">sesión gratis</a>.'],
+    ['¿Funciona para mi tipo de negocio?', 'Si tus clientes te escriben por WhatsApp para preguntar, cotizar, reservar o comprar, sí. Hoy lo usan restaurantes, agencias de marketing, negocios de salud y bienestar, tiendas de hogar y moda, redes de mercadeo y empresas de productos industriales. Si tienes dudas, lo revisamos con tu caso en la <a href="#sesion">sesión gratis de 30 minutos</a>.'],
+    ['¿Cuánto cuesta en total? ¿Hay costos escondidos?', 'Pagas tu plan mensual: desde $69.000 COP sin IA o desde $119.000 COP con agente de IA, con la configuración gratis. Aparte, Meta cobra directamente las plantillas de WhatsApp: ~$50 COP por mensaje de marketing y ~$20 COP por mensaje de utilidad. Ese costo no lo cobra Trofyx.'],
+    ['¿Tengo permanencia? ¿Hay descuento anual?', 'No hay permanencia: el cobro es mensual y automático por Mercado Pago, y puedes cancelar cuando quieras. Si prefieres pagar el año, tienes 17% de descuento solicitándolo a nuestro equipo por WhatsApp.'],
+    ['¿Qué pasa en la sesión gratis? ¿Me van a presionar para comprar?', 'No. Son 30 minutos para revisar cómo atiendes hoy tu WhatsApp, mostrarte en vivo cómo respondería un agente de IA y darte un plan paso a paso. Si decides activarlo, te lo dejamos listo en 72 horas sin pagar la configuración. Si Trofyx no es para tu negocio, te lo decimos.'],
+    ['¿Mi equipo puede tomar una conversación del agente?', 'Sí. Los planes Pro IA y Business IA incluyen handoff a humano; Business IA suma asignación por reglas.'],
+    ['¿Necesito un número nuevo de WhatsApp?', 'No. El número lo aportas tú y nosotros lo conectamos a la API oficial de Meta como parte de la configuración.'],
+    ['¿Se conecta con mi calendario?', 'Sí. La agenda envía recordatorios y se sincroniza con Google Calendar; Business IA incluye multi-calendario.']
+  ];
+  var PLUS = '<svg class="plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>';
+  document.getElementById('faqs').innerHTML = FAQ.map(function (f) {
+    return '<details class="faq"><summary>' + f[0] + PLUS + '</summary><div class="ans">' + f[1] + '</div></details>';
+  }).join('');
+
+
+  /* ---------- Semana actual para los cupos de configuración ---------- */
+  (function () {
+    var M = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    var d = new Date(), mon = new Date(d.getFullYear(), d.getMonth(), d.getDate() - ((d.getDay() + 6) % 7));
+    var sun = new Date(mon.getFullYear(), mon.getMonth(), mon.getDate() + 6);
+    var txt = mon.getMonth() === sun.getMonth()
+      ? 'del ' + mon.getDate() + ' al ' + sun.getDate() + ' de ' + M[sun.getMonth()]
+      : 'del ' + mon.getDate() + ' de ' + M[mon.getMonth()] + ' al ' + sun.getDate() + ' de ' + M[sun.getMonth()];
+    document.querySelectorAll('[data-week]').forEach(function (el) { el.textContent = txt; });
+  })();
+
+  tagLinks();
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
