@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<!-- CHECKOUT TROFYX · estructura del checkout de getkong.ai, con solo los datos que pide el registro de Trofyx -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activa tu plan · Trofyx</title>
+<meta name="description" content="Crea tu cuenta de Trofyx y paga tu plan de forma segura con Mercado Pago. Sin permanencia.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<script>
+  /* Mismo tema que eligió la persona en la landing (por defecto, claro). */
+  (function () {
+    try { if (localStorage.getItem('trofyx-theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+<link rel="preconnect" href="https://trofyx-production.up.railway.app" crossorigin>
+<style>
+/* =========================================================
+   TOKENS (los mismos de la landing)
+   ========================================================= */
+:root{
+  --primary:#7B26FA;
+  --primary-hover:#150132;
+  --bg:#FFFFFF;
+  --bg-lav:#F9F5FF;
+  --ink:#150132;
+  --text:#000000;
+  --text-soft:#475467;
+  --card:#FFFFFF;
+  --card-shadow:0 20px 25px -5px rgba(16,24,40,.08),0 8px 10px -6px rgba(16,24,40,.06);
+  --eyebrow:#6A1BE0;
+  --pill-text:#2B2932;
+  --pill-shadow:0 4px 50px rgba(0,0,0,.10);
+  --border:rgba(21,1,50,.12);
+  --input-border:#4E2B9F;
+  --input-bg:#FFFFFF;
+  --red:#D92D20;
+  --ok-bg:#E7F8EE;
+  --ok-ink:#067647;
+  --step-off:#D0D5DD;
+  --faq-bg:#150132;
+}
+html.dark{
+  --bg:#242229;
+  --bg-lav:#2B2932;
+  --ink:#FFFFFF;
+  --text:#FFFFFF;
+  --text-soft:#D3D3D4;
+  --card:#2B2932;
+  --card-shadow:0 20px 25px -5px rgba(0,0,0,.25);
+  --eyebrow:#C299FF;
+  --pill-shadow:0 4px 50px rgba(78,43,159,.73);
+  --border:rgba(255,255,255,.12);
+  --input-border:rgba(194,153,255,.55);
+  --input-bg:#1E1C22;
+  --red:#FF6B6B;
+  --ok-bg:rgba(65,216,65,.12);
+  --ok-ink:#6DE16D;
+  --step-off:#4A4752;
+  --faq-bg:#1A1820;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Apple Color Emoji","Segoe UI Emoji",sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4,p{margin:0}
+.wrap{width:min(1140px,100% - 32px);margin-inline:auto}
+.stars{color:#F5A000;letter-spacing:2px}
+.hl{display:inline-block;background:#fff;color:var(--pill-text);padding:0 .24em .08em;border-radius:14px;transform:rotate(-1.16deg);box-shadow:var(--pill-shadow);line-height:1.05}
+.ck{flex:none;width:22px;height:22px;border-radius:50%;background:var(--primary);display:grid;place-items:center;margin-top:2px}
+.ck svg{width:12px;height:12px;color:#fff}
+
+/* =========================================================
+   BARRA SUPERIOR (sin menú: nada que distraiga del pago)
+   ========================================================= */
+.topbar{background:var(--primary);color:#fff}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.topbar img{height:30px;width:auto}
+.help{display:flex;align-items:center;gap:8px;font-size:16px;line-height:1.3}
+.help svg{width:20px;height:20px;flex:none}
+.help a{font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:560px){.help{font-size:14px}.help .hide-sm{display:none}.topbar img{height:24px}}
+
+/* =========================================================
+   PASOS
+   ========================================================= */
+.steps{display:flex;list-style:none;padding:0;margin:36px auto 0;max-width:660px}
+.steps li{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:15px;font-weight:600;line-height:1.3;color:var(--text-soft);text-align:center}
+.steps li + li::before{content:"";position:absolute;top:18px;left:calc(-50% + 26px);right:calc(50% + 26px);height:2px;background:var(--step-off)}
+.steps .n{position:relative;z-index:1;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--step-off);color:#fff;font-weight:700;font-size:17px}
+.steps li.on{color:var(--ink)}
+.steps li.on .n{background:var(--primary);box-shadow:0 0 0 5px rgba(123,38,250,.16)}
+@media (max-width:560px){.steps{margin-top:26px}.steps li{font-size:13px}}
+
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:22px;font-size:15px;font-weight:600;color:var(--eyebrow)}
+.back:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* =========================================================
+   CHECKOUT: formulario (izq.) + resumen del plan (der.)
+   ========================================================= */
+.co{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;margin-top:28px;padding-bottom:88px}
+.co-left,.co-right{min-width:0}
+
+/* Títulos de bloque */
+.co-sec{display:flex;align-items:center;gap:12px;font-size:19px;font-weight:700;color:var(--ink);padding-bottom:12px;margin-bottom:20px;border-bottom:1px solid var(--border)}
+.co-sec svg{width:21px;height:21px;flex:none}
+.co-sec.mt{margin-top:34px}
+
+/* Campos */
+.f{margin-bottom:18px}
+.f label{display:block;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.f .hint{display:block;font-size:14px;line-height:1.4;color:var(--text-soft);margin:-2px 0 8px}
+.f input{display:block;width:100%;height:52px;padding:12px 14px;font:inherit;font-size:17px;color:var(--text);background:var(--input-bg);border:1px solid var(--input-border);border-radius:8px;outline:none;transition:border-color .2s,box-shadow .2s}
+.f input::placeholder{color:#98A2B3}
+.f input:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(123,38,250,.18)}
+.f .msg{display:none;margin-top:6px;font-size:14px;font-weight:600;line-height:1.4;color:var(--red)}
+.f.invalid input{border-color:var(--red);box-shadow:0 0 0 3px rgba(217,45,32,.12)}
+.f.invalid .msg{display:block}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tel{display:flex}
+.tel .cc{flex:none;display:grid;place-items:center;padding:0 14px;font-weight:700;color:var(--ink);background:var(--bg-lav);border:1px solid var(--input-border);border-right:0;border-radius:8px 0 0 8px}
+.tel input{border-radius:0 8px 8px 0}
+.pw{position:relative}
+.pw input{padding-right:54px}
+.eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:42px;height:42px;display:grid;place-items:center;border-radius:8px;color:var(--text-soft)}
+.eye:hover{color:var(--ink)}
+.eye svg{width:21px;height:21px}
+.eye .off{display:none}
+.eye.showing .on{display:none}
+.eye.showing .off{display:block}
+
+.paynote{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:var(--bg-lav);font-size:16px;line-height:1.5;color:var(--text)}
+.paynote svg{width:22px;height:22px;flex:none;color:var(--primary);margin-top:1px}
+.paynote b{color:var(--ink)}
+
+.checks{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.45;color:var(--text-soft);cursor:pointer}
+.chk input{flex:none;width:19px;height:19px;margin:1px 0 0;accent-color:var(--primary)}
+.chk a{color:var(--eyebrow);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.chk.invalid{color:var(--red);font-weight:600}
+
+/* Sellos de confianza */
+.trust{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:12px 16px;margin-top:30px;padding:16px 14px;border:1px solid var(--border);border-radius:12px}
+.trust div{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;line-height:1.3;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.trust svg{width:24px;height:24px;flex:none;color:var(--ink)}
+
+/* Garantía con laureles */
+.gbox{margin-top:34px}
+.gbox-head{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px}
+.gbox-head h3{font-size:22px;font-weight:800;line-height:1.2;letter-spacing:-.02em;color:var(--ink);text-align:center}
+.laurel{width:46px;height:auto;color:var(--primary);flex:none}
+.laurel.r{transform:scaleX(-1)}
+.gbox-card{padding:20px 22px;border:1px solid var(--border);border-radius:14px;background:var(--card);box-shadow:var(--card-shadow)}
+.gbox-card ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.gbox-card li{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.5}
+.gbox-card .gi{font-size:22px;line-height:1.2;flex:none}
+.gbox-card b{color:var(--ink)}
+.gbox-card .fine{margin-top:14px;font-size:13.5px;line-height:1.5;color:var(--text-soft)}
+
+/* Resumen del plan */
+.co-head .kicker{font-size:14px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--eyebrow)}
+.co-head h1{margin-top:6px;font-size:clamp(32px,3.2vw,42px);font-weight:800;line-height:1.08;letter-spacing:-.035em;color:var(--ink)}
+.head-price{display:none;margin-top:8px;font-size:17px;font-weight:600;color:var(--text-soft)}
+.head-price b{font-size:20px;font-weight:800;color:var(--ink)}
+.co-head .tagline{margin-top:14px;font-size:clamp(20px,1.9vw,25px);font-weight:700;line-height:1.3;letter-spacing:-.02em;color:var(--ink)}
+.co-change{display:inline-flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:16px;font-size:15px;font-weight:600;color:var(--text-soft)}
+.co-change select{font:inherit;font-size:15px;font-weight:700;color:var(--eyebrow);background:var(--bg-lav) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237B26FA' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center/14px;border:1px solid var(--border);border-radius:999px;padding:7px 36px 7px 14px;-webkit-appearance:none;appearance:none;cursor:pointer}
+.co-img{margin:30px auto 0;width:100%;max-width:380px;aspect-ratio:1;border-radius:22px;overflow:hidden;background:#0B0A12;box-shadow:0 26px 50px -18px rgba(21,1,50,.45)}
+.co-img img{width:100%;height:100%;object-fit:cover}
+
+.co-feats > h2{margin:40px 0 20px;font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.pgroup + .pgroup{margin-top:26px}
+.pgroup h4{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.pgroup p{font-size:16px;line-height:1.5;color:var(--text);margin-bottom:12px}
+.pgroup ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.pgroup li{display:flex;gap:10px;font-size:16px;line-height:1.45;color:var(--text)}
+
+/* Caja de pago */
+.paybox{margin-top:34px;padding:24px;border:1px solid var(--border);border-radius:16px;background:var(--card);box-shadow:var(--card-shadow)}
+.paybox .lbl{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft)}
+.total{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;margin-top:4px}
+.total b{font-size:clamp(30px,3vw,36px);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:var(--ink)}
+.total span{font-size:16px;font-weight:700;color:var(--ink)}
+.total small{font-size:14px;font-weight:600;color:var(--text-soft)}
+.gift-line{margin-top:14px;padding:10px 12px;border-radius:10px;background:var(--ok-bg);color:var(--ok-ink);font-size:15.5px;font-weight:700;line-height:1.4}
+.gift-line s{font-weight:600;opacity:.8}
+.paybtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:18px;padding:17px 24px;border-radius:999px;background:var(--primary);color:#fff;font-weight:700;font-size:20px;line-height:1.25;box-shadow:0 10px 24px rgba(123,38,250,.30);transition:background-color .2s,transform .2s}
+.paybtn:hover{background:var(--primary-hover);transform:translateY(-1px)}
+html.dark .paybtn:hover{background:#5A12C9}
+.paybtn svg{width:20px;height:20px;flex:none}
+.paybtn[disabled]{cursor:progress;opacity:.85;transform:none}
+.spinner{width:18px;height:18px;flex:none;border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pay-fine{margin-top:12px;font-size:14px;line-height:1.5;color:var(--text-soft);text-align:center}
+.form-err,.srv-err{display:none;margin-top:14px;padding:12px 14px;border-radius:10px;font-size:15px;font-weight:600;line-height:1.45}
+.form-err{background:rgba(217,45,32,.08);color:var(--red)}
+.srv-err{background:rgba(217,45,32,.08);color:var(--red)}
+.srv-err a{text-decoration:underline}
+.form-err.show,.srv-err.show{display:block}
+
+/* Móvil: primero el plan, luego los datos y el botón; lo demás después */
+@media (max-width:900px){
+  .co{display:flex;flex-direction:column;gap:0;max-width:600px;margin-inline:auto;padding-bottom:64px}
+  .co-left,.co-right{display:contents}
+  .co-head{order:1;margin-bottom:28px}
+  .head-price{display:block}
+  .co-head .tagline{font-size:19px;margin-top:12px}
+  .co-form{order:2}
+  .paybox{order:3;margin-top:24px}
+  .trust{order:4}
+  .gbox{order:5}
+  .co-img{order:6;max-width:300px;margin-top:40px}
+  .co-feats{order:7}
+}
+@media (max-width:480px){
+  .row2{gap:10px}
+  .co-img{max-width:240px}
+  .paybtn{font-size:18px;padding:16px 18px}
+  .paybox{padding:20px 18px}
+}
+@media (max-width:340px){.row2{grid-template-columns:1fr;gap:0}}
+
+/* =========================================================
+   PRUEBA SOCIAL
+   ========================================================= */
+.s-proof{background:var(--bg-lav);padding:88px 0;text-align:center}
+.s-proof .kicker{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--eyebrow)}
+.h2{margin-top:12px;font-size:clamp(28px,3.4vw,46px);font-weight:700;line-height:1.2;letter-spacing:-.035em;color:var(--ink)}
+.s-proof .sub{margin-top:14px;font-size:clamp(18px,1.5vw,20px)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px;text-align:left}
+.tcard{display:flex;flex-direction:column;justify-content:space-between;gap:22px;background:var(--card);border:1px solid var(--border);box-shadow:var(--card-shadow);padding:26px;border-radius:16px}
+.tcard q{display:block;quotes:"“" "”";margin-top:8px;font-size:17px;line-height:1.55}
+.tcard q b{font-weight:700;color:var(--ink)}
+.tperson{display:flex;align-items:center;gap:12px}
+.tperson .av{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:700;color:#fff}
+.tperson img{flex:none;width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 30%}
+.tperson b{display:block;font-size:17px;line-height:1.3;color:var(--ink)}
+.tperson small{display:block;font-size:14px;color:var(--text-soft)}
+@media (max-width:900px){
+  .s-proof{padding:64px 0}
+  .tgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:32px -16px 0;padding:4px 16px 16px;-webkit-overflow-scrolling:touch}
+  .tcard{flex:0 0 82%;max-width:340px;scroll-snap-align:center}
+}
+
+/* =========================================================
+   FAQ (fondo oscuro, como en el checkout de Kong)
+   ========================================================= */
+.s-faq{background:var(--faq-bg);color:#fff;padding:88px 0}
+.s-faq .kicker{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#C299FF;text-align:center}
+.s-faq .h2{color:#fff;text-align:center}
+.faqs{max-width:900px;margin:40px auto 0;display:flex;flex-direction:column;gap:12px}
+.faq{border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(255,255,255,.03)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 22px;font-weight:700;font-size:18px;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary svg{flex:none;width:20px;height:20px;transition:transform .3s ease}
+.faq[open] summary svg{transform:rotate(45deg)}
+.faq .ans{padding:0 22px 20px;font-size:16.5px;line-height:1.6;color:#E4E1EC}
+.faq .ans a{color:#C299FF;font-weight:700;text-decoration:underline}
+@media (max-width:900px){.s-faq{padding:64px 0}.faq summary{font-size:17px;padding:16px 18px}.faq .ans{padding:0 18px 18px}}
+
+/* Footer */
+.footer{padding:56px 16px;text-align:center;border-top:1px solid var(--border)}
+.footer .logo{display:inline-block}
+.footer .logo img{height:36px;width:auto}
+.for-dark{display:none}
+html.dark .for-dark{display:block}
+html.dark .for-light{display:none}
+.socials{display:flex;justify-content:center;gap:22px;margin:24px 0 20px}
+.socials a{color:var(--ink);opacity:.9}
+.socials a:hover{opacity:1}
+.socials svg{width:22px;height:22px}
+.copy,.flinks{font-size:15px;color:var(--text)}
+.flinks{margin-top:6px}
+.flinks a:hover{text-decoration:underline}
+.flinks span{margin:0 8px;opacity:.6}
+
+@media (prefers-reduced-motion:reduce){.spinner{animation-duration:2s}.paybtn,.faq summary svg{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ======================= BARRA SUPERIOR ======================= -->
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a href="index.html" id="logoLink" aria-label="Trofyx inicio"><img src="assets/logo-lockup-white.png" alt="Trofyx" width="150" height="38"></a>
+    <p class="help">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>
+      <span class="hide-sm">¿Necesitas ayuda?</span>
+      <a href="https://wa.me/573014184115?text=Hola,%20tengo%20una%20duda%20antes%20de%20pagar%20mi%20plan%20de%20Trofyx" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+  <ol class="steps" aria-label="Pasos para activar tu plan">
+    <li class="on" aria-current="step"><span class="n">1</span>Tus datos</li>
+    <li><span class="n">2</span>Pago en Mercado Pago</li>
+    <li><span class="n">3</span>Tu cuenta activa</li>
+  </ol>
+
+  <a class="back" id="backLink" href="index.html#precios">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    Ver todos los planes
+  </a>
+
+  <div class="co">
+    <!-- ============ IZQUIERDA: datos ============ -->
+    <div class="co-left">
+      <form class="co-form" id="ckForm" novalidate>
+        <h2 class="co-sec">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.4 0-9 2.2-9 5.5V22h18v-2.5c0-3.3-4.6-5.5-9-5.5z"/></svg>
+          Tus datos
+        </h2>
+        <div class="row2">
+          <div class="f">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="given-name" placeholder="Laura" required>
+            <span class="msg">Escribe tu nombre.</span>
+          </div>
+          <div class="f">
+            <label for="apellido">Apellido</label>
+            <input id="apellido" name="apellido" type="text" autocomplete="family-name" placeholder="Gómez" required>
+            <span class="msg">Escribe tu apellido.</span>
+          </div>
+        </div>
+        <div class="f">
+          <label for="negocio">Nombre de tu negocio</label>
+          <input id="negocio" name="negocio" type="text" autocomplete="organization" placeholder="Clínica Sonrisa" required>
+          <span class="msg">Escribe el nombre de tu negocio.</span>
+        </div>
+
+        <h2 class="co-sec mt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8L20 3M16.5 6.5l2.5 2.5M14 9l2 2"/></svg>
+          Tu cuenta
+        </h2>
+        <div class="f">
+          <label for="email">Correo</label>
+          <span class="hint" id="emailHint">Con este correo entras a Trofyx.</span>
+          <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="laura@clinicasonrisa.com" aria-describedby="emailHint" required>
+          <span class="msg">Revisa tu correo: parece que le falta algo.</span>
+        </div>
+        <div class="f">
+          <label for="whatsapp">WhatsApp</label>
+          <span class="hint" id="waHint">Por aquí te acompañamos con la configuración.</span>
+          <div class="tel">
+            <span class="cc" aria-hidden="true">+57</span>
+            <input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel-national" inputmode="numeric" placeholder="300 123 4567" aria-describedby="waHint" required>
+          </div>
+          <span class="msg">Escribe tu número de 10 dígitos (por ejemplo, 300 123 4567).</span>
+        </div>
+        <div class="f">
+          <label for="password">Contraseña</label>
+          <span class="hint" id="pwHint">Mínimo 8 caracteres.</span>
+          <div class="pw">
+            <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="Crea tu contraseña" aria-describedby="pwHint" required>
+            <button type="button" class="eye" id="eye" aria-label="Mostrar contraseña">
+              <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A9.8 9.8 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6C3.8 8.4 2 12 2 12s3.6 7 10 7a9.6 9.6 0 0 0 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>
+            </button>
+          </div>
+          <span class="msg">Tu contraseña debe tener al menos 8 caracteres.</span>
+        </div>
+
+        <h2 class="co-sec mt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/></svg>
+          Pago
+        </h2>
+        <p class="paynote">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+          <span>No te pedimos tu tarjeta aquí. Al continuar, <b>pagas en la página segura de Mercado Pago</b>. El cobro es mensual y automático, y cancelas cuando quieras.</span>
+        </p>
+
+        <div class="checks">
+          <label class="chk" id="termsRow"><input type="checkbox" name="terms" required> <span>Acepto los <a href="https://trofyx.com/terminos.html" target="_blank" rel="noopener">Términos y condiciones</a> y la <a href="https://trofyx.com/privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.</span></label>
+          <label class="chk"><input type="checkbox" name="noNews"> <span>No quiero recibir novedades ni consejos de Trofyx por correo o WhatsApp.</span></label>
+        </div>
+      </form>
+
+      <div class="trust" aria-label="Pago seguro">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+          <span>Pago seguro<br>con Mercado Pago</span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5l8 3v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10v-6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+          <span>Tus datos<br>protegidos</span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7.5a5 5 0 0 1 9.6-2"/><rect x="4" y="11" width="16" height="10" rx="2.5"/></svg>
+          <span>Sin<br>permanencia</span>
+        </div>
+      </div>
+
+      <div class="gbox">
+        <div class="gbox-head">
+          <svg class="laurel" data-laurel viewBox="0 0 100 170" aria-hidden="true"></svg>
+          <h3>Triple garantía:<br>el riesgo es nuestro</h3>
+          <svg class="laurel r" data-laurel viewBox="0 0 100 170" aria-hidden="true"></svg>
+        </div>
+        <div class="gbox-card">
+          <ul>
+            <li data-ia-only><span class="gi" aria-hidden="true">⏱️</span><span><b>Listo en 72 horas o te devolvemos tu primer mes.</b> Si en 72 horas tu agente no está respondiendo con tu catálogo, te devolvemos el valor de tu primer mes y seguimos configurándolo hasta que quede listo.</span></li>
+            <li><span class="gi" aria-hidden="true">💸</span><span><b>30 días para probarlo.</b> Si en los primeros 30 días Trofyx no le suma a tu negocio, te devolvemos el 100% de tu primer mes.</span></li>
+            <li><span class="gi" aria-hidden="true">🔓</span><span><b>Sin permanencia.</b> Pagas mes a mes con Mercado Pago y cancelas cuando quieras. Sin contratos.</span></li>
+          </ul>
+          <p class="fine" data-ia-only>Las 72 horas cuentan desde que nos envías tu catálogo, tus precios y el acceso a tu cuenta de Meta. La aprobación de las plantillas depende de Meta. Las devoluciones aplican sobre el valor de tu primer mes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ DERECHA: resumen del plan ============ -->
+    <aside class="co-right" aria-label="Resumen de tu plan">
+      <div class="co-head">
+        <p class="kicker">Tu plan</p>
+        <h1 id="planName">Pro IA</h1>
+        <p class="head-price" id="headPrice"></p>
+        <p class="tagline" id="planTag"></p>
+        <label class="co-change">Cambiar plan:
+          <select id="plan" name="plan" form="ckForm">
+            <optgroup label="Con agente de IA">
+              <option>Starter IA</option>
+              <option selected>Pro IA</option>
+              <option>Business IA</option>
+            </optgroup>
+            <optgroup label="Sin IA (solo mensajería)">
+              <option>Mensajero</option>
+              <option>Mensajero Plus</option>
+              <option>Mensajero Max</option>
+            </optgroup>
+          </select>
+        </label>
+      </div>
+
+      <div class="co-img"><img id="planImg" src="assets/func-f-2.webp" alt="" width="412" height="412" loading="lazy"></div>
+
+      <div class="co-feats">
+        <h2>Esto es lo que recibes</h2>
+        <div id="planFeats"></div>
+      </div>
+
+      <div class="paybox">
+        <p class="lbl">Total de hoy</p>
+        <div class="total"><b id="planPrice">$219.000</b><span>COP / mes</span><small id="planUsd">≈ USD $70</small></div>
+        <p class="gift-line" id="giftLine">🎁 Configuración en 72 h: GRATIS <s>$1.000.000</s><br>📊 Auditoría de IA cada mes: GRATIS <s>$797.000/mes</s><br>⏳ Los dos bonos son por tiempo limitado: se acaban pronto</p>
+        <button type="submit" form="ckForm" class="paybtn" id="cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>
+          <span id="ctaLabel">Pagar y continuar</span>
+        </button>
+        <p class="form-err" id="formErr" role="alert">Revisa los campos marcados en rojo.</p>
+        <p class="srv-err" id="srvErr" role="alert"></p>
+        <p class="pay-fine">Te llevamos a Mercado Pago para pagar. Cobro mensual automático · sin permanencia.<br>Las plantillas de WhatsApp las cobra Meta aparte.</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- ======================= PRUEBA SOCIAL ======================= -->
+<section class="s-proof">
+  <div class="wrap">
+    <p class="kicker"><span class="stars" aria-hidden="true">★★★★★</span> Clientes de Trofyx</p>
+    <h2 class="h2">Negocios que ya venden por WhatsApp <span class="hl">con Trofyx</span></h2>
+    <p class="sub">Restaurantes, agencias, negocios de salud y tiendas: <b>+10.000 mensajes enviados cada mes</b>.</p>
+    <div class="tgrid">
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>El mismo agente de inteligencia artificial ha agendado la reunión,</b> sin tener yo que hacer nada.</q></div><div class="tperson"><img src="assets/testimonio-hector.webp" alt="" width="44" height="44" loading="lazy"><div><b>Héctor Jairo Patiño Osorio</b><small>Red de mercadeo</small></div></div></article>
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Nuestros clientes piden cotizaciones a toda hora.</b> La IA califica cada contacto y nos pasa solo los que están listos para comprar.</q></div><div class="tperson"><span class="av" style="background:#475467">IP</span><div><b>Inox Pro</b><small>Productos en acero inoxidable</small></div></div></article>
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Los recordatorios automáticos redujeron muchísimo las inasistencias,</b> y nuestros pacientes reciben respuesta a cualquier hora.</q></div><div class="tperson"><span class="av" style="background:#0D9488">SB</span><div><b>Salud y Bienestar</b><small>Salud y bienestar</small></div></div></article>
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Creamos nuestro menú de restaurante directo en WhatsApp.</b> Ahora los clientes ven los platos y hacen su pedido sin esperar a que alguien les responda.</q></div><div class="tperson"><span class="av" style="background:#F97316">CS</span><div><b>Ceviche Said</b><small>Restaurante</small></div></div></article>
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Manejamos el WhatsApp de varias marcas desde una sola bandeja.</b> Los envíos masivos y los embudos nos ahorran horas cada semana.</q></div><div class="tperson"><span class="av" style="background:#7C3AED">WM</span><div><b>Wapo Marketing</b><small>Agencia de marketing</small></div></div></article>
+      <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Con el catálogo y las campañas por WhatsApp vendemos más que nunca.</b> Es muy fácil de usar para todo el equipo.</q></div><div class="tperson"><span class="av" style="background:#DB2777">HM</span><div><b>Hogar y Moda</b><small>Tienda de hogar y moda</small></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="s-faq">
+  <div class="wrap">
+    <p class="kicker">Antes de pagar</p>
+    <h2 class="h2">Preguntas <span class="hl">frecuentes</span></h2>
+    <div class="faqs" id="faqs"></div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <a href="index.html" class="logo" id="footLogo" aria-label="Trofyx">
+    <img class="for-light" src="assets/logo-lockup-dark.png" alt="Trofyx" width="150" height="38" loading="lazy">
+    <img class="for-dark" src="assets/logo-lockup-white.png" alt="Trofyx" width="150" height="38" loading="lazy">
+  </a>
+  <div class="socials">
+    <a href="https://www.facebook.com/profile.php?id=61573348020618" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.5h-2.8V24C19.62 23.1 24 18.1 24 12.07"/></svg></a>
+    <a href="https://www.linkedin.com/company/trofyx/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+    <a href="https://www.instagram.com/trofyx_/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.youtube.com/@Trofyx_ai" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+  </div>
+  <p class="copy">Copyright © Trofyx <span id="year">2026</span>. Todos los derechos reservados.</p>
+  <p class="flinks"><a href="https://wa.me/573014184115?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Trofyx" target="_blank" rel="noopener">Soporte</a><span>|</span><a href="https://trofyx.com/terminos.html">Términos y condiciones</a><span>|</span><a href="https://trofyx.com/privacidad.html">Política de privacidad</a><span>|</span><a href="#" data-tfx-cookies>Cookies</a></p>
+</footer>
+
+<script src="medicion.js"></script>
+<script>
+(() => {
+  /* ---------- Backend de Trofyx y Mercado Pago (los mismos de trofyx.com/registro.html) ---------- */
+  const API_BASE_URL = 'https://trofyx-production.up.railway.app/api/v1';
+  const CHECKOUT_BASE = 'https://www.mercadopago.com.co/subscriptions/checkout?preapproval_plan_id=';
+
+  /* ---------- Planes ----------
+     'backend' = plan_name EXACTO del backend · 'mp' = preapproval_plan_id mensual de Mercado Pago.
+     Los precios y las funciones deben coincidir con la sección #precios de la landing. */
+  const PLANS = {
+    'Starter IA': { line: 'ia', backend: 'Starter', mp: '048304d6c9d943fe85a1a87d50fb1004', price: 119000, usd: '≈ USD $40',
+      desc: 'Para negocios que quieren dejar de perder chats y empezar a automatizar su WhatsApp.',
+      groups: [
+        { h: 'Agente de IA básico', p: 'Responde y califica a tus clientes 24/7 por WhatsApp.', li: ['<b>2.000</b> mensajes de IA al mes', '<b>Transcripción</b> de notas de voz', '<b>1 base</b> de conocimiento (RAG)'] },
+        { h: 'CRM y bandeja', p: 'Tu equipo atendiendo desde un solo lugar.', li: ['<b>2</b> usuarios / asesores', '<b>3.000</b> contactos en el CRM', 'Inbox <b>en tiempo real</b>', '<b>5</b> plantillas de WhatsApp y <b>1</b> embudo'] },
+        { h: 'Agenda', p: 'Citas organizadas sin ir chat por chat.', li: ['Agenda <b>inteligente</b>', 'Recordatorio de citas <b>manual</b>', 'Integración con <b>Meta Ads</b> · soporte por WhatsApp'] }
+      ] },
+    'Pro IA': { line: 'ia', backend: 'Pro', mp: 'ac169aca000e4ce2abda7059055d9db5', price: 219000, usd: '≈ USD $70',
+      desc: 'La mejor opción para equipos de venta que quieren automatizar todo su embudo en WhatsApp.',
+      groups: [
+        { h: 'Agente de IA completo', p: 'Embudos por etapa, lead scoring y handoff a tu equipo.', li: ['<b>4.000</b> mensajes de IA al mes', '<b>Transcripción</b> de notas de voz', '<b>Varias bases</b> de conocimiento (RAG)', '<b>Handoff</b> a humano cuando hace falta'] },
+        { h: 'CRM y campañas', p: 'Vende más a los contactos que ya tienes.', li: ['<b>5</b> usuarios / asesores', '<b>6.500</b> contactos en el CRM', '<b>Envío masivo</b> con segmentación', 'Plantillas y <b>embudos ilimitados</b>'] },
+        { h: 'Agenda e integraciones', p: 'Tus citas y tus datos, conectados.', li: ['Recordatorios de citas <b>automáticos</b>', '<b>Google Sheets</b> y <b>Webhooks</b>', '<b>3</b> formularios · soporte <b>prioritario</b>'] }
+      ] },
+    'Business IA': { line: 'ia', backend: 'Business', mp: 'ba21669610cc4f59bb5622c02a2a2cd7', price: 399000, usd: '≈ USD $130',
+      desc: 'Para empresas con varias sedes, equipos grandes y reglas de atención propias.',
+      groups: [
+        { h: 'Agente de IA avanzado', p: 'Multi-embudo y reglas propias para tu operación.', li: ['<b>6.000</b> mensajes de IA al mes', 'Base de conocimiento <b>ilimitada</b>', 'Handoff con <b>asignación por reglas</b>'] },
+        { h: 'CRM y campañas', p: 'Control total de tu equipo y tus sedes.', li: ['<b>8</b> usuarios / asesores', '<b>10.000</b> contactos en el CRM', 'Envío masivo con <b>segmentación</b>', 'Embudos ilimitados + <b>pruebas A/B</b>', '<b>Multisede</b>'] },
+        { h: 'Agenda e integraciones', p: 'Para operaciones que no pueden parar.', li: ['<b>Multi-calendario</b> con recordatorios automáticos', '<b>API abierta</b> + WASI nativo', '<b>8</b> formularios · <b>onboarding asistido</b>'] }
+      ] },
+    'Mensajero': { line: 'msg', backend: 'Mensajero', mp: 'e91cca5c8a7547abb286eef7e8da2eb8', price: 69000, usd: '≈ USD $25',
+      desc: 'Bandeja compartida y envíos masivos para empezar a ordenar tu WhatsApp, sin IA.',
+      groups: [
+        { h: 'Mensajería', p: 'Atiende y envía campañas desde un solo lugar.', li: ['Envíos masivos <b>ilimitados</b>', 'Inbox <b>multiagente</b>', '<b>10</b> respuestas rápidas y <b>5</b> plantillas', 'Métricas de <b>entregados y leídos</b>'] },
+        { h: 'CRM', p: 'Tus contactos organizados.', li: ['<b>2</b> usuarios / asesores', '<b>500</b> contactos en el CRM', '<b>1</b> embudo básico · importar CSV'] }
+      ] },
+    'Mensajero Plus': { line: 'msg', backend: 'Mensajero Plus', mp: '5c7353474b224db3bade8f8dc9cdc3fd', price: 119000, usd: '≈ USD $40',
+      desc: 'Campañas programadas, segmentación y agenda para equipos que crecen.',
+      groups: [
+        { h: 'Mensajería', p: 'Campañas más inteligentes.', li: ['Envíos masivos <b>ilimitados</b>', '<b>50</b> respuestas rápidas y <b>20</b> plantillas', 'Campañas <b>programadas</b> por fecha y hora', 'Segmentación por <b>etiquetas</b>', 'Métricas + <b>clics y respuestas</b>'] },
+        { h: 'CRM y agenda', p: 'Más equipo, más contactos.', li: ['<b>5</b> usuarios / asesores', '<b>3.000</b> contactos en el CRM', '<b>3</b> embudos y <b>1</b> calendario', 'Importar y exportar · <b>Meta Ads</b>', '<b>3</b> formularios · soporte por WhatsApp'] }
+      ] },
+    'Mensajero Max': { line: 'msg', backend: 'Mensajero Max', mp: 'a42fd9900a604d629a9aee8414344468', price: 239000, usd: '≈ USD $80',
+      desc: 'Todo ilimitado para operaciones de mensajería de alto volumen, sin IA.',
+      groups: [
+        { h: 'Mensajería', p: 'Sin límites para tus campañas.', li: ['Envíos, respuestas rápidas y plantillas <b>ilimitadas</b>', 'Campañas <b>recurrentes</b>', 'Métricas + <b>conversiones</b> y export CSV'] },
+        { h: 'CRM y agenda', p: 'Para equipos grandes.', li: ['<b>8</b> usuarios / asesores', '<b>6.500</b> contactos en el CRM', 'Embudos <b>ilimitados</b>', '<b>Multi-calendario</b> + recordatorios', '<b>Webhooks</b> + API abierta · <b>8</b> formularios'] }
+      ] }
+  };
+  const IMG = { ia: { src: 'assets/func-f-2.webp', alt: 'Configuración del agente de IA de Trofyx' }, msg: { src: 'assets/func-f-1.webp', alt: 'Bandeja compartida de conversaciones de Trofyx' } };
+  const WHATSAPP = 'https://wa.me/573014184115?text=';
+  const CK = '<span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span>';
+  const cop = n => '$' + n.toLocaleString('es-CO');
+  // Bono de los planes con IA (el mismo de la oferta de la landing).
+  const BONUS_HTML = '<div class="pgroup"><h4>🎁 Bono: Auditoría de IA cada mes (valor $797.000/mes)</h4><p>Cada mes revisamos contigo cómo rinde tu agente y cómo van tus ventas, y sales con un plan para vender más.</p><ul>' +
+    ['Cómo está <b>rindiendo tu agente</b> de IA', 'Qué chats terminaron en <b>venta o cita</b>', 'Qué cambiar para <b>vender más con IA</b>'].map(li => '<li>' + CK + '<span>' + li + '</span></li>').join('') + '</ul></div>';
+
+  /* ---------- Plan elegido (?plan=Pro%20IA; también acepta "pro", "mensajeroplus"...) ---------- */
+  const params = new URLSearchParams(location.search);
+  const norm = v => v.toLowerCase().replace(/[\s_-]+/g, '');
+  const ALIASES = { starter: 'Starter IA', pro: 'Pro IA', business: 'Business IA' };
+  Object.keys(PLANS).forEach(k => { ALIASES[norm(k)] = k; });
+  const lp = params.get('lp') || '';
+
+  const $ = id => document.getElementById(id);
+  const form = $('ckForm'), planSel = $('plan'), cta = $('cta'), ctaLabel = $('ctaLabel');
+  planSel.value = ALIASES[norm(params.get('plan') || '')] || 'Pro IA';
+
+  const renderPlan = () => {
+    const name = planSel.value, p = PLANS[name], ia = p.line === 'ia';
+    $('planName').textContent = name;
+    $('planTag').textContent = p.desc;
+    $('headPrice').innerHTML = '<b>' + cop(p.price) + '</b> COP / mes · sin permanencia';
+    $('planPrice').textContent = cop(p.price);
+    $('planUsd').textContent = p.usd;
+    $('giftLine').hidden = !ia;
+    $('planImg').src = IMG[p.line].src;
+    $('planImg').alt = IMG[p.line].alt;
+    $('planFeats').innerHTML = p.groups.map(g =>
+      '<div class="pgroup"><h4>' + g.h + '</h4><p>' + g.p + '</p><ul>' + g.li.map(li => '<li>' + CK + '<span>' + li + '</span></li>').join('') + '</ul></div>'
+    ).join('') + (ia ? BONUS_HTML : '');
+    document.querySelectorAll('[data-ia-only]').forEach(el => { el.hidden = !ia; });
+    document.title = 'Activa tu plan ' + name + ' · Trofyx';
+    // La URL refleja el plan, por si la persona recarga o comparte el enlace.
+    try { params.set('plan', name); history.replaceState(null, '', '?' + params.toString()); } catch (_) {}
+  };
+  planSel.addEventListener('change', renderPlan);
+  renderPlan();
+
+  /* ---------- Volver a la versión de la landing de la que vino (A/B) ----------
+     1.º la página exacta de la que vino (referrer del mismo sitio);
+     2.º si el navegador no lo da (p. ej. abriendo los archivos en local), el parámetro
+         lp=a|b que la landing agrega a los botones de los planes, con los mismos UTM. */
+  const LP_PAGES = { a: 'version-a.html', b: 'version-b.html' };
+  let back = '';
+  try {
+    const ref = document.referrer && new URL(document.referrer);
+    if (ref && ref.origin === location.origin && !/checkout/.test(ref.pathname)) back = ref.pathname + ref.search;
+  } catch (_) {}
+  if (!back && LP_PAGES[lp]) {
+    const keep = new URLSearchParams();
+    params.forEach((v, k) => { if (/^utm_/.test(k) || k === 'fbclid') keep.set(k, v); });
+    back = LP_PAGES[lp] + (keep.toString() ? '?' + keep.toString() : '');
+  }
+  if (back) {
+    $('backLink').href = back + '#precios';
+    $('logoLink').href = back;
+    $('footLogo').href = back;
+  }
+
+  /* ---------- Laureles (mismo dibujo que la landing) ---------- */
+  document.querySelectorAll('[data-laurel]').forEach(svg => {
+    let g = '<path d="M78 166 C30 140 14 90 30 14" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"/>';
+    for (let i = 0; i < 8; i++) {
+      const t = i / 8, x = 78 - 62 * t - 14 * Math.sin(t * Math.PI), y = 160 - 140 * t, ang = -120 + t * 70;
+      g += '<ellipse cx="' + (x - 12).toFixed(1) + '" cy="' + y.toFixed(1) + '" rx="15" ry="6.5" fill="currentColor" transform="rotate(' + (ang + 160) + ' ' + (x - 12).toFixed(1) + ' ' + y.toFixed(1) + ')"/>';
+      g += '<ellipse cx="' + (x + 11).toFixed(1) + '" cy="' + (y - 6).toFixed(1) + '" rx="14" ry="6" fill="currentColor" transform="rotate(' + (ang + 100) + ' ' + (x + 11).toFixed(1) + ' ' + (y - 6).toFixed(1) + ')"/>';
+    }
+    svg.innerHTML = g + '<ellipse cx="30" cy="10" rx="13" ry="6" fill="currentColor" transform="rotate(-80 30 10)"/>';
+  });
+
+  /* ---------- FAQ (solo lo que se pregunta justo antes de pagar) ---------- */
+  const FAQ = [
+    ['¿Cómo se cobra? ¿Tengo permanencia?', 'El cobro es mensual y automático con Mercado Pago. No hay permanencia ni contratos: cancelas cuando quieras. Si prefieres pagar el año, tienes 17% de descuento <a href="' + WHATSAPP + encodeURIComponent('Hola, quiero pagar el año de Trofyx con el 17% de descuento.') + '" target="_blank" rel="noopener">solicitándolo por WhatsApp</a>.'],
+    ['¿Qué pasa después de pagar?', 'Entras a Trofyx con el correo y la contraseña que creaste aquí. Si tu plan tiene IA, tienes dos caminos: lo configuras tú en menos de 5 minutos con nuestro asistente de IA, o nuestro equipo te lo deja listo en máximo 72 horas (agente configurado, catálogo cargado, número conectado a la API oficial de Meta y hasta 5 plantillas), gratis. Para eso solo nos envías tu catálogo, tus precios y el acceso a tu cuenta de Meta.'],
+    ['¿Hay costos escondidos?', 'Pagas solo tu plan mensual. Aparte, Meta cobra directamente las plantillas de WhatsApp: ~$50 COP por mensaje de marketing y ~$20 COP por mensaje de utilidad. Ese costo no lo cobra Trofyx.'],
+    ['¿Y si no me convence?', 'Si en los primeros 30 días Trofyx no le suma a tu negocio, te devolvemos el 100% de tu primer mes. En los planes con IA, además, si en 72 horas tu agente no está respondiendo con tu catálogo, te devolvemos tu primer mes y seguimos configurándolo.'],
+    ['¿Me pueden bloquear el número de WhatsApp?', 'Trofyx funciona con la API oficial de WhatsApp Business de Meta, no con apps no oficiales, que son las que ponen en riesgo tu número. Solo tienes que respetar las políticas de WhatsApp (por ejemplo, no enviar spam).'],
+    ['¿Necesito un número nuevo de WhatsApp?', 'No. El número lo aportas tú y lo conectamos a la API oficial de Meta.']
+  ];
+  const PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>';
+  $('faqs').innerHTML = FAQ.map(f => '<details class="faq"><summary>' + f[0] + PLUS + '</summary><div class="ans">' + f[1] + '</div></details>').join('');
+  $('year').textContent = new Date().getFullYear();
+
+  /* ---------- Formulario ---------- */
+  const digits = v => v.replace(/\D/g, '');
+  const phone = () => { const d = digits(form.whatsapp.value); return d.length === 12 && d.startsWith('57') ? d.slice(2) : d; };
+  const RULES = {
+    nombre: i => i.value.trim() !== '',
+    apellido: i => i.value.trim() !== '',
+    negocio: i => i.value.trim() !== '',
+    email: i => i.value.trim() !== '' && i.checkValidity(),
+    whatsapp: () => phone().length === 10,
+    password: i => i.value.length >= 8
+  };
+  const check = name => { const ok = RULES[name](form[name]); form[name].closest('.f').classList.toggle('invalid', !ok); return ok; };
+  let tried = false;
+  // El aviso general se quita solo cuando ya no queda nada por corregir.
+  const syncFormErr = () => { if (!form.querySelector('.f.invalid') && form.terms.checked) $('formErr').classList.remove('show'); };
+  Object.keys(RULES).forEach(name => {
+    form[name].addEventListener('input', () => { if (tried || form[name].closest('.f').classList.contains('invalid')) { check(name); syncFormErr(); } });
+    form[name].addEventListener('blur', () => { if (form[name].value) check(name); });
+  });
+  form.whatsapp.addEventListener('input', e => { e.target.value = e.target.value.replace(/[^0-9 ]/g, ''); });
+  form.terms.addEventListener('change', () => { $('termsRow').classList.toggle('invalid', tried && !form.terms.checked); syncFormErr(); });
+
+  const eye = $('eye');
+  eye.addEventListener('click', () => {
+    const show = form.password.type === 'password';
+    form.password.type = show ? 'text' : 'password';
+    eye.classList.toggle('showing', show);
+    eye.setAttribute('aria-label', show ? 'Ocultar contraseña' : 'Mostrar contraseña');
+  });
+
+  const srvErr = $('srvErr');
+  const showServerError = html => { srvErr.innerHTML = html; srvErr.classList.add('show'); };
+  const setBusy = label => { cta.disabled = true; ctaLabel.innerHTML = '<span class="spinner" style="display:inline-block;vertical-align:-3px;margin-right:10px"></span>' + label; };
+  const resetCta = () => { cta.disabled = false; ctaLabel.textContent = 'Pagar y continuar'; };
+  // Si la persona vuelve con "Atrás" desde Mercado Pago, el botón queda listo otra vez.
+  addEventListener('pageshow', e => { if (e.persisted) resetCta(); });
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const postRegister = body => fetch(API_BASE_URL + '/auth/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  const errorDetail = async res => {
+    const data = await res.json().catch(() => null);
+    const d = data && data.detail;
+    const msg = typeof d === 'string' ? d : (Array.isArray(d) && d[0] && d[0].msg) || '';
+    if (/correo|email/i.test(msg) && /exist|registr|already|uso|use/i.test(msg)) {
+      return 'Ya existe una cuenta con este correo. <a href="https://app.trofyx.com/#/login">Inicia sesión aquí</a> o usa otro correo.';
+    }
+    return esc(msg || 'No pudimos crear tu cuenta. Inténtalo de nuevo o escríbenos por WhatsApp.');
+  };
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (cta.disabled) return;
+    tried = true;
+    const bad = Object.keys(RULES).filter(name => !check(name));
+    const termsOk = form.terms.checked;
+    $('termsRow').classList.toggle('invalid', !termsOk);
+    $('formErr').textContent = bad.length ? 'Revisa los campos marcados en rojo.' : 'Para continuar, acepta los Términos y la Política de privacidad.';
+    $('formErr').classList.toggle('show', bad.length > 0 || !termsOk);
+    srvErr.classList.remove('show');
+    if (bad.length) { form[bad[0]].focus(); return; }
+    if (!termsOk) { form.terms.focus(); return; }
+
+    setBusy('Creando tu cuenta...');
+    const name = planSel.value, p = PLANS[name];
+    const admin_email = form.email.value.trim();
+    const admin_password = form.password.value;
+    const base = { name: form.negocio.value.trim(), admin_email, admin_password, plan_name: p.backend };
+    const extra = {
+      first_name: form.nombre.value.trim(),
+      last_name: form.apellido.value.trim(),
+      whatsapp: '+57' + phone(),
+      marketing_opt_out: form.noNews.checked
+    };
+
+    try {
+      // 1. Crear la cuenta (igual que trofyx.com/registro.html). Si el backend no acepta
+      //    los campos extra y responde 422, se reintenta solo con los obligatorios.
+      let res = await postRegister({ ...base, ...extra });
+      if (res.status === 422) res = await postRegister(base);
+      if (!res.ok) throw new Error(await errorDetail(res));
+
+      const data = await res.json();
+      const tenantId = data.id || data.tenant_id;
+      const checkoutUrl = data.checkout_url || (tenantId ? CHECKOUT_BASE + p.mp + '&external_reference=' + encodeURIComponent(tenantId) : '');
+      if (!checkoutUrl) throw new Error('Tu cuenta quedó creada, pero no pudimos abrir el pago. <a href="' + WHATSAPP + encodeURIComponent('Hola, creé mi cuenta de Trofyx (' + admin_email + ') y quiero pagar el plan ' + name + '.') + '" target="_blank" rel="noopener">Escríbenos por WhatsApp</a> y te enviamos el enlace.');
+
+      // 2. Meta Pixel + API de Conversiones (window.tfxPixel, ver medicion.js).
+      const px = window.tfxPixel;
+      if (px) {
+        const content = { value: p.price, currency: 'COP', content_name: 'Suscripción Trofyx ' + p.backend + ' (monthly)', content_category: 'SaaS', lp };
+        const user = { em: admin_email, ph: extra.whatsapp, fn: extra.first_name, ln: extra.last_name, external_id: tenantId };
+        px.track('CompleteRegistration', content, user);
+        px.track('InitiateCheckout', content, user);
+      }
+
+      // 3. Al pago en Mercado Pago.
+      setBusy('Te llevamos a Mercado Pago...');
+      location.href = checkoutUrl;
+    } catch (err) {
+      console.error('Error en el checkout:', err);
+      showServerError(err instanceof TypeError
+        ? 'No pudimos conectar con el servidor. Revisa tu conexión e inténtalo de nuevo.'
+        : err.message || 'No pudimos crear tu cuenta. Inténtalo de nuevo.');
+      resetCta();
+    }
+  });
+
+  const px = window.tfxPixel;
+  if (px) px.track('ViewContent', { content_name: 'Checkout ' + planSel.value, content_category: 'SaaS', value: PLANS[planSel.value].price, currency: 'COP', lp });
+})();
+</script>
+</body>
+</html>

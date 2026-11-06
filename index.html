@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- LANDING TROFYX · VERSIÓN A · vende la llamada (sesión gratis de 30 min) -->
-<html lang="es">
+<html lang="es" data-lp="a" data-tfx-banner="scroll">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -319,7 +319,6 @@ html.dark .fix{background:rgba(65,216,65,.12);color:#6DE16D}
 /* =========================================================
    EJEMPLOS (marquee de conversaciones)
    ========================================================= */
-.s-examples{background:var(--bg);padding:96px 0 88px;overflow:hidden}
 .mq{display:flex;width:max-content;gap:16px;animation:mq-left var(--speed,70s) linear infinite}
 .mq.right{animation-name:mq-right}
 .mq-row{overflow:hidden;padding:8px 0}
@@ -342,7 +341,6 @@ html.dark .fix{background:rgba(65,216,65,.12);color:#6DE16D}
 .evt{align-self:center;margin-top:auto;background:#fff;border-radius:999px;padding:5px 11px;font-weight:700;font-size:12px;color:#150132;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .evt.p{background:#7B26FA;color:#fff}
 .evt.g{background:#25D366;color:#06301A}
-.mq-note{margin-top:20px;font-size:15px;color:var(--text-soft)}
 
 /* =========================================================
    CREDENCIALES
@@ -456,7 +454,7 @@ html.dark .s-creds{background:var(--bg-lav)}
 .tperson b{display:block;font-size:19px;letter-spacing:-.02em;line-height:1.3}
 .tperson small{display:block;color:var(--text-soft);font-size:15px}
 /* Testimonios en video */
-.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1020px;margin:44px auto 0;text-align:left}
+.vgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;max-width:1152px;margin:44px auto 0;text-align:left}
 .vt{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--card-shadow)}
 .vt-media{position:relative;aspect-ratio:9/16;background:#000;cursor:pointer;overflow:hidden}
 .vt-media > img{width:100%;height:100%;object-fit:cover}
@@ -508,6 +506,17 @@ html.dark .guar-line,html.dark .hero-guar{color:#6DE16D}
 .shot-card img{width:100%;height:auto;border-radius:12px;border:1px solid var(--border)}
 .shot-card figcaption b{display:block;font-size:19px;line-height:1.3;color:var(--ink)}
 .shot-card figcaption small{display:block;margin-top:6px;font-size:16px;line-height:1.5;color:var(--text-soft)}
+/* Capturas reales de clientes (WhatsApp e Instagram) */
+.wa-shots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:1100px;margin:36px auto 0;align-items:start;text-align:left}
+.wa-shot{margin:0;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:10px;box-shadow:var(--card-shadow)}
+.wa-shot img{width:100%;height:auto;border-radius:12px;background:#0B141A}
+.wa-shot figcaption{padding:12px 6px 4px}
+.wa-shot figcaption b{display:block;font-size:18.7px;line-height:1.4;color:var(--ink)}
+.wa-shot figcaption small{display:block;margin-top:6px;font-size:15px;color:var(--text-soft)}
+@media (max-width:900px){
+  .wa-shots{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:28px -16px 0;padding:4px 16px 14px;-webkit-overflow-scrolling:touch}
+  .wa-shot{flex:0 0 72%;max-width:300px;scroll-snap-align:center}
+}
 .proof-slot{border:2.5px dashed #D9A400;background:#FFFBEA;border-radius:16px;padding:28px;display:flex;flex-direction:column;justify-content:center;gap:12px;color:#5A4500}
 .proof-slot b{font-size:20px;color:#3D2F00}
 html.dark .proof-slot{background:#2B2610;color:#FFE58A}
@@ -555,6 +564,23 @@ html.dark .proof-slot b{color:#FFF3B0}
 .value{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:30px;padding:20px 22px;border-radius:16px;background:var(--bg-lav);font-weight:600}
 .value .free{font-size:clamp(26px,2.6vw,34px);font-weight:800;color:var(--primary);letter-spacing:-.02em}
 .scarcity{margin-top:16px;font-weight:600;color:var(--ink)}
+/* Bono: auditoría de IA mensual */
+.bonus{margin-top:28px;padding:24px clamp(18px,3vw,28px);border:2px dashed var(--primary);border-radius:18px;background:var(--bg-lav)}
+.bonus-tag{display:inline-block;background:var(--primary);color:#fff;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.bonus-h{margin-top:12px;font-size:clamp(22px,2.2vw,28px);font-weight:800;line-height:1.25;letter-spacing:-.02em;color:var(--ink)}
+.bonus > p{margin-top:10px}
+.bonus-list{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:12px}
+.bonus-list li{display:flex;gap:12px;align-items:flex-start}
+.bonus-list .bi{flex:none;font-size:22px;line-height:1.3}
+.bonus-list b,.bonus .bonus-close{color:var(--ink)}
+.bonus .bonus-close{font-weight:700}
+.bonus-val{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-weight:600}
+.bonus-val b{color:var(--primary)}
+html.dark .bonus-val b{color:#C299FF}
+.bonus-limit{margin-top:14px;padding:12px 14px;border-radius:12px;background:#FFF1E6;color:#9A3412;font-size:17px;font-weight:600;line-height:1.45}
+.bonus-limit b{color:#7C2D12}
+html.dark .bonus-limit{background:rgba(251,146,60,.14);color:#FDBA74}
+html.dark .bonus-limit b{color:#FED7AA}
 .offer .cta-in{margin-top:30px;text-align:center}
 .offer .btn{width:100%;max-width:640px}
 .offer .proofline{justify-content:center}
@@ -695,8 +721,8 @@ html.dark .footer{background:var(--bg-lav)}
   <div class="hero-grid">
     <div class="hero-copy">
       <p class="hero-eyebrow"><span class="stars" aria-label="5 estrellas">★★★★★</span> <span>Restaurantes, agencias, negocios de salud y tiendas ya venden con Trofyx · <b>+10.000 mensajes enviados cada mes</b></span></p>
-      <h1 class="h1">¿Vendes por WhatsApp? En 72 horas te dejamos un agente de IA vendiendo por ti con el <span class="mk">Sistema Cero Visto</span>. Tú no configuras nada.</h1>
-      <p class="lead">Agenda una sesión gratis de 30 minutos y, si lo activas, te lo dejamos listo sin pagar la configuración (normalmente $1.000.000).</p>
+      <h1 class="h1">¿Vendes por WhatsApp? En 72 horas ningún cliente se vuelve a quedar en visto, con el <span class="mk">Sistema Cero Visto</span>. Tú no configuras nada.</h1>
+      <p class="lead">Un agente de IA les responde por ti. Agenda una sesión gratis de 30 minutos y, si lo activas, te lo dejamos listo sin pagar la configuración (normalmente $1.000.000).</p>
     </div>
 
     <div class="hero-media">
@@ -876,58 +902,6 @@ html.dark .footer{background:var(--bg-lav)}
   </div>
 </section>
 
-<!-- ======================= EJEMPLOS (cómo responde el agente) ======================= -->
-<section class="s-examples center" aria-label="Ejemplos de conversaciones atendidas por un agente de IA de Trofyx">
-  <div class="container reveal">
-    <h2 class="h2">¿Funciona en tu tipo de negocio? <span class="hl">Mira cómo responde</span> en 8 industrias distintas</h2>
-    <p class="lead narrow" style="margin-top:20px">Clínicas, restaurantes, inmobiliarias, academias, concesionarios, tiendas, spas y gimnasios: el mismo agente, entrenado con la información de cada negocio.</p>
-  </div>
-  <div class="mq-wrap">
-    <div class="mq-row"><div class="mq" style="--speed:80s" data-dup>
-      <div class="cr"><div class="cr-in chat">
-        <div class="chat-top"><span class="av" style="background:#0EA5E9">CS</span><div><b>Clínica Sonrisa</b><small>Agente IA · en línea</small></div></div>
-        <div class="chat-body"><div class="bub u">Hola, ¿tienen cita para limpieza mañana?</div><div class="bub a">¡Hola! 😊 Sí, tengo 10:00 a. m. o 3:30 p. m. ¿Cuál prefieres?</div><div class="bub u">3:30 porfa</div><div class="evt p">📅 Cita agendada · mañana 3:30 p. m.</div></div>
-      </div></div>
-      <div class="cr"><div class="cr-in chat">
-        <div class="chat-top"><span class="av" style="background:#F97316">CM</span><div><b>Ceviches del Mar</b><small>Agente IA · en línea</small></div></div>
-        <div class="chat-body"><div class="bub u">¿Hacen domicilios hoy?</div><div class="bub a">¡Claro! 🍤 Aquí tienes nuestro menú. ¿Qué te gustaría pedir?</div><div class="bub u">2 ceviches mixtos</div><div class="evt g">✅ Pedido confirmado</div></div>
-      </div></div>
-      <div class="cr"><div class="cr-in"><img src="assets/func-f-4.webp" alt="Agenda de citas de Trofyx" loading="lazy" width="280" height="280"></div></div>
-      <div class="cr"><div class="cr-in chat">
-        <div class="chat-top"><span class="av" style="background:#16A34A">IH</span><div><b>Inmobiliaria Horizonte</b><small>Agente IA · en línea</small></div></div>
-        <div class="chat-body"><div class="bub u">Busco apto de 2 habitaciones en el norte</div><div class="bub a">Tengo 3 opciones en tu presupuesto 🏠 ¿Agendamos visita el sábado?</div><div class="evt">🔥 Lead calificado · alta intención</div></div>
-      </div></div>
-      <div class="cr"><div class="cr-in chat">
-        <div class="chat-top"><span class="av" style="background:#7C3AED">IP</span><div><b>Idiomas Plus</b><small>Agente IA · en línea</small></div></div>
-        <div class="chat-body"><div class="bub u">¿Cuánto cuesta el curso de inglés?</div><div class="bub a">El intensivo incluye clases en vivo y certificado 🇺🇸 ¿Te envío horarios y precio?</div><div class="bub u">Sí, por favor</div><div class="evt p">📝 Inscripción en proceso</div></div>
-      </div></div>
-      <div class="cr"><div class="cr-in"><img src="assets/func-f-5.webp" alt="CRM de clientes de Trofyx" loading="lazy" width="280" height="280"></div></div>
-    </div></div>
-
-    <div class="mq-row"><div class="mq right" style="--speed:90s" data-dup>
-      <div class="cr"><div class="cr-in chat">
-        <div class="chat-top"><span class="av" style="background:#DC2626">AP</span><div><b>Autos Premier</b><small>Agente IA · en línea</small></div></div>
-        <div class="chat-body"><div class="bub u">¿El Mazda 3 sigue disponible?</div><div class="bub a">¡Sí! 🚗 Te comparto fotos y precio. ¿Quieres agendar un test drive?</div><div class="evt">📅 Test drive · jueves 4:00 p. m.</div></div>
-      </div></div>
-      <div class="cr"><div class="cr-in chat">
-        <div class="chat-top"><span class="av" style="background:#DB2777">HM</span><div><b>Hogar &amp; Moda</b><small>Agente IA · en línea</small></div></div>
-        <div class="chat-body"><div class="bub u">¿Tienen este sofá en gris?</div><div class="bub a">Sí, en gris y beige 🛋️ Te envío el catálogo con precios.</div><div class="bub u">¡Me encanta el gris!</div><div class="evt g">🛒 Listo para comprar</div></div>
-      </div></div>
-      <div class="cr"><div class="cr-in"><img src="assets/func-f-7.webp" alt="Automatizaciones de Trofyx" loading="lazy" width="280" height="280"></div></div>
-      <div class="cr"><div class="cr-in chat">
-        <div class="chat-top"><span class="av" style="background:#0D9488">SB</span><div><b>Spa Bienestar</b><small>Agente IA · en línea</small></div></div>
-        <div class="chat-body"><div class="bub a">Hola Laura 👋 Te recordamos tu masaje mañana a las 11:00 a. m. ¿Confirmas?</div><div class="bub u">¡Confirmo! 🙌</div><div class="evt p">🔔 Recordatorio automático</div></div>
-      </div></div>
-      <div class="cr"><div class="cr-in chat">
-        <div class="chat-top"><span class="av" style="background:#2563EB">GF</span><div><b>Gym Fuerza</b><small>Agente IA · en línea</small></div></div>
-        <div class="chat-body"><div class="bub u">Son las 11 p. m., ¿todavía puedo inscribirme?</div><div class="bub a">¡Claro! 💪 Te dejo los planes y el link de pago. Empiezas mañana.</div><div class="evt g">💳 Pago enviado</div></div>
-      </div></div>
-      <div class="cr"><div class="cr-in"><img src="assets/func-f-2.webp" alt="Configuración del agente de IA de Trofyx" loading="lazy" width="280" height="280"></div></div>
-    </div></div>
-  </div>
-  <p class="mq-note container">Conversaciones de ejemplo para mostrar cómo responde un agente de Trofyx.</p>
-</section>
-
 <!-- ======================= 7 · CREDENCIALES ======================= -->
 <section class="s-creds section center">
   <div class="container">
@@ -1080,6 +1054,17 @@ html.dark .footer{background:var(--bg-lav)}
 
     <div class="vgrid reveal">
       <article class="vt">
+        <div class="vt-media" data-video="assets/testimonio-mauricio.mp4" role="button" tabindex="0" aria-label="Reproducir el testimonio de Mauricio Pérez (1 minuto 25 segundos)">
+          <img src="assets/testimonio-mauricio.webp" alt="Mauricio Pérez, cofundador de Hogar y Moda Conexión, cliente de Trofyx" loading="lazy" width="480" height="854">
+          <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span>
+          <span class="vtime">▶ 1:25</span>
+        </div>
+        <div class="vt-body">
+          <q>Aproximadamente llevamos un mes trabajando con Trofyx… les cuento que nos cambió totalmente la vida.</q>
+          <div class="vt-who"><b>Mauricio Pérez</b><small>Cofundador · Hogar y Moda Conexión</small></div>
+        </div>
+      </article>
+      <article class="vt">
         <div class="vt-media" data-video="assets/testimonio-hector.mp4" role="button" tabindex="0" aria-label="Reproducir el testimonio de Héctor Jairo Patiño Osorio (1 minuto 42 segundos)">
           <img src="assets/testimonio-hector.webp" alt="Héctor Jairo Patiño Osorio, cliente de Trofyx" loading="lazy" width="480" height="854">
           <span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></svg></span>
@@ -1122,7 +1107,30 @@ html.dark .footer{background:var(--bg-lav)}
       <article class="tcard"><div><div class="stars">★★★★★</div><q><b>Con el catálogo y las campañas por WhatsApp vendemos más que nunca.</b> Es muy fácil de usar para todo el equipo.</q></div><div class="tperson"><span class="av" style="background:#DB2777">HM</span><div><b>Hogar y Moda</b><small>Tienda de hogar y moda</small></div></div></article>
       <figure class="tcard shot-card">
         <img src="assets/testimonio-whatsapp-70.webp" alt="Captura de WhatsApp de un cliente: Sí la verdad nos ha ido muy bien con trofyx. Literalmente hemos aumentado nuestras ventas en un 70%" width="804" height="563" loading="lazy">
-        <figcaption><b>📸 Captura real de WhatsApp de un cliente</b><small>“Literalmente hemos aumentado nuestras ventas en un 70%”. Resultado reportado por el cliente; puede variar según cada negocio.</small></figcaption>
+        <figcaption><b> Captura real de WhatsApp de un cliente</b><small>“Literalmente hemos aumentado nuestras ventas en un 70%”. Resultado reportado por el cliente; puede variar según cada negocio.</small></figcaption>
+      </figure>
+    </div>
+
+    <div class="reveal" style="margin-top:80px">
+      <h3 class="h3">“Acá te muestro cómo el agente IA me agendó solo”: lo que nos escriben <span class="hl">nuestros clientes</span></h3>
+      <p class="lead narrow" style="margin-top:16px">Capturas reales de WhatsApp y de nuestro Instagram. Tapamos los nombres para cuidar la privacidad de cada cliente.</p>
+    </div>
+    <div class="wa-shots reveal">
+      <figure class="wa-shot">
+        <img src="assets/testimonio-wa-agenda.webp" alt="Captura de WhatsApp de un cliente: La agenda va muy bien, acá te muestro como el agente IA me agendó solo" width="540" height="780" loading="lazy">
+        <figcaption><b>“La agenda va muy bien, acá te muestro cómo el agente IA me agendó solo”</b><small>Cliente de Trofyx · por WhatsApp</small></figcaption>
+      </figure>
+      <figure class="wa-shot">
+        <img src="assets/testimonio-wa-agradecida.webp" alt="Captura de WhatsApp de una clienta: Estoy muy agradecida con todo lo que han hecho por mi empresa, gracias por ayudarme a cerrar más ventas con el chatbot" width="540" height="730" loading="lazy">
+        <figcaption><b>“Estoy muy agradecida con todo lo que han hecho por mi empresa”</b><small>Clienta de Trofyx · por WhatsApp</small></figcaption>
+      </figure>
+      <figure class="wa-shot">
+        <img src="assets/comentario-ig-deiure.webp" alt="Comentario de deiuregrupolegal en el Instagram de Trofyx: Excelente servicio, serios, respetuosos y muy responsables." width="540" height="757" loading="lazy">
+        <figcaption><b>“Excelente servicio, serios, respetuosos y muy responsables”</b><small>@deiuregrupolegal · en nuestro Instagram</small></figcaption>
+      </figure>
+      <figure class="wa-shot">
+        <img src="assets/comentario-ig-recomendados.webp" alt="Comentario de 7uanpppp en el Instagram de Trofyx: Muy recomendados" width="540" height="607" loading="lazy">
+        <figcaption><b>“Muy recomendados”</b><small>@7uanpppp · en nuestro Instagram</small></figcaption>
       </figure>
     </div>
 
@@ -1210,6 +1218,19 @@ html.dark .footer{background:var(--bg-lav)}
         <span>Valor normal del Camino 2, hecho por nuestro equipo: <s>$1.000.000 COP</s></span>
         <span class="free">Hoy: $0</span>
       </div>
+      <div class="bonus">
+        <span class="bonus-tag">🎁 Bono incluido · cada mes</span>
+        <h3 class="bonus-h">Y no te dejamos solo: cada mes, una <span class="mk">Auditoría de IA</span> para que vendas más</h3>
+        <p>Tu agente no se instala y se olvida. Cada mes revisamos contigo cómo está trabajando y qué te está vendiendo, y sales con un plan claro para el mes siguiente:</p>
+        <ul class="bonus-list">
+          <li><span class="bi">📊</span><span><b>Cómo está rindiendo tu agente de IA:</b> qué le preguntan tus clientes, cómo les responde y en qué conversaciones se le escapan.</span></li>
+          <li><span class="bi">💰</span><span><b>Cómo van tus ventas por WhatsApp:</b> qué chats terminaron en venta o en cita, y en qué parte del camino se te están quedando los clientes.</span></li>
+          <li><span class="bi">🚀</span><span><b>Qué cambiar para vender más con IA:</b> ajustes concretos a tu agente, a tus mensajes y a tus campañas para el mes que viene.</span></li>
+        </ul>
+        <p class="bonus-close">Es como tener a un experto en IA y ventas revisando tu WhatsApp todos los meses, sin contratar a nadie.</p>
+        <p class="bonus-val"><span>Valor normal: <s>$797.000 COP al mes</s></span><b>Hoy: incluida en tu plan con IA</b></p>
+      </div>
+      <p class="bonus-limit">⏳ <b>Los dos bonos son por tiempo limitado y se van a acabar pronto.</b> La configuración en 72 horas y la auditoría de cada mes las hace una persona de nuestro equipo, así que solo podemos regalarlas por un tiempo. Cuando termine la promoción, dejan de venir incluidas en el plan.</p>
       <p class="guar-line">🛡️ Listo en 72 horas o te devolvemos tu primer mes · 30 días de garantía de devolución · Sin permanencia</p>
       <p class="scarcity">⏳ Cada agente lo configura una persona de nuestro equipo, por eso los cupos de configuración gratis son limitados cada semana. Cupos abiertos para la semana <b data-week>actual</b>. Si se llenan, tu configuración pasa a la semana siguiente.</p>
 
@@ -1278,9 +1299,9 @@ html.dark .footer{background:var(--bg-lav)}
     <div><a class="alt-link" href="#precios">o elige tu plan y empieza hoy mismo</a></div>
 
     <div class="ps">
-      <p><b>P.D.</b> Si solo vas a leer esto: agenda tu <b>sesión gratis de 30 minutos</b>. Si activas tu agente, lo configuras tú en menos de 5 minutos con nuestro asistente, o te lo dejamos listo en 72 horas con la configuración (normalmente $1.000.000) por nuestra cuenta y triple garantía.</p>
+      <p><b>P.D.</b> Si solo vas a leer esto: agenda tu <b>sesión gratis de 30 minutos</b>. Si activas tu agente, lo configuras tú en menos de 5 minutos con nuestro asistente, o te lo dejamos listo en 72 horas con la configuración (normalmente $1.000.000) por nuestra cuenta, una auditoría de IA cada mes para vender más (normalmente $797.000 al mes) y triple garantía.</p>
       <p><b>Siguiente paso:</b> haz clic en el botón, elige un horario y ten a mano tu WhatsApp de negocio.</p>
-      <p><b>Si no haces nada:</b> mañana vas a volver a responder tarde, y cada cliente que espera le compra a quien contestó primero. Y los cupos de configuración gratis de esta semana se los lleva otro negocio.</p>
+      <p><b>Si no haces nada:</b> mañana vas a volver a responder tarde, y cada cliente que espera le compra a quien contestó primero. Y los cupos de configuración gratis de esta semana se los lleva otro negocio. Además, la configuración gratis y la auditoría de IA mensual son por tiempo limitado: cuando termine la promoción, ya no vienen incluidas.</p>
     </div>
   </div>
 </section>
@@ -1299,20 +1320,21 @@ html.dark .footer{background:var(--bg-lav)}
     <a href="https://www.youtube.com/@Trofyx_ai" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
   </div>
   <p class="copy">Copyright © Trofyx <span id="year">2026</span>. Todos los derechos reservados.</p>
-  <p class="flinks"><a href="https://wa.me/573014184115?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Trofyx" target="_blank" rel="noopener">Soporte</a><span>|</span><a href="https://trofyx.com/terminos.html">Términos y condiciones</a><span>|</span><a href="https://trofyx.com/privacidad.html">Política de privacidad</a></p>
+  <p class="flinks"><a href="https://wa.me/573014184115?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Trofyx" target="_blank" rel="noopener">Soporte</a><span>|</span><a href="https://trofyx.com/terminos.html">Términos y condiciones</a><span>|</span><a href="https://trofyx.com/privacidad.html">Política de privacidad</a><span>|</span><a href="#" data-tfx-cookies>Cookies</a></p>
 </footer>
 
+<script src="medicion.js"></script>
 <script>
 (function () {
   var LP_VERSION = 'a';
   var html = document.documentElement;
 
-  /* ---------- Test A/B: pasa los UTM y la versión de la landing al formulario y al registro ---------- */
+  /* ---------- Test A/B: pasa los UTM y la versión de la landing al formulario y al checkout ---------- */
   function tagLinks(root) {
     var keep = [];
     try { new URLSearchParams(location.search).forEach(function (v, k) { if (/^utm_/.test(k) || k === 'fbclid') keep.push([k, v]); }); } catch (e) {}
     keep.push(['lp', LP_VERSION]);
-    (root || document).querySelectorAll('a[href*="forms.trofyx.com"], a[href*="trofyx.com/registro"]').forEach(function (a) {
+    (root || document).querySelectorAll('a[href*="forms.trofyx.com"], a[href*="checkout.html"]').forEach(function (a) {
       try {
         var u = new URL(a.getAttribute('href'), location.href);
         keep.forEach(function (p) { if (!u.searchParams.has(p[0])) u.searchParams.set(p[0], p[1]); });
@@ -1403,26 +1425,26 @@ html.dark .footer{background:var(--bg-lav)}
   });
 
   /* ---------- Precios ---------- */
-  var REG = 'https://trofyx.com/registro.html?plan=';
+  var REG = 'checkout.html?plan=';
   var PLANS = {
     ia: [
-      { name: 'Starter IA', price: '$119.000', usd: '≈ USD $40 · sin permanencia', cls: 'basic', desc: 'Para negocios que quieren dejar de perder chats y empezar a automatizar su WhatsApp.',
-        groups: [
-          { h: 'Agente de IA básico', p: 'Responde y califica a tus clientes 24/7 por WhatsApp.', li: ['<b>2.000</b> mensajes de IA al mes', '<b>Transcripción</b> de notas de voz', '<b>1 base</b> de conocimiento (RAG)'] },
-          { h: 'CRM y bandeja', p: 'Tu equipo atendiendo desde un solo lugar.', li: ['<b>2</b> usuarios / asesores', '<b>3.000</b> contactos en el CRM', 'Inbox <b>en tiempo real</b>', '<b>5</b> plantillas de WhatsApp y <b>1</b> embudo'] },
-          { h: 'Agenda', p: 'Citas organizadas sin ir chat por chat.', li: ['Agenda <b>inteligente</b>', 'Recordatorio de citas <b>manual</b>', 'Integración con <b>Meta Ads</b> · soporte por WhatsApp'] }
-        ] },
-      { name: 'Pro IA', price: '$219.000', usd: '≈ USD $70 · sin permanencia', cls: 'pop', tab: '🔥 MÁS POPULAR 🔥', desc: 'La mejor opción para equipos de venta que quieren automatizar todo su embudo en WhatsApp.',
+      { name: 'Pro IA', price: '$219.000', usd: '≈ USD $70 · sin permanencia', cls: 'pro', desc: 'La mejor opción para equipos de venta que quieren automatizar todo su embudo en WhatsApp.',
         groups: [
           { h: 'Agente de IA completo', p: 'Embudos por etapa, lead scoring y handoff a tu equipo.', li: ['<b>4.000</b> mensajes de IA al mes', '<b>Transcripción</b> de notas de voz', '<b>Varias bases</b> de conocimiento (RAG)', '<b>Handoff</b> a humano cuando hace falta'] },
           { h: 'CRM y campañas', p: 'Vende más a los contactos que ya tienes.', li: ['<b>5</b> usuarios / asesores', '<b>6.500</b> contactos en el CRM', '<b>Envío masivo</b> con segmentación', 'Plantillas y <b>embudos ilimitados</b>'] },
           { h: 'Agenda e integraciones', p: 'Tus citas y tus datos, conectados.', li: ['Recordatorios de citas <b>automáticos</b>', '<b>Google Sheets</b> y <b>Webhooks</b>', '<b>3</b> formularios · soporte <b>prioritario</b>'] }
         ] },
-      { name: 'Business IA', price: '$399.000', usd: '≈ USD $130 · sin permanencia', cls: 'pro', desc: 'Para empresas con varias sedes, equipos grandes y reglas de atención propias.',
+      { name: 'Business IA', price: '$399.000', usd: '≈ USD $130 · sin permanencia', cls: 'pop', tab: '🔥 MÁS COMPLETO 🔥', desc: 'Para empresas con varias sedes, equipos grandes y reglas de atención propias.',
         groups: [
           { h: 'Agente de IA avanzado', p: 'Multi-embudo y reglas propias para tu operación.', li: ['<b>6.000</b> mensajes de IA al mes', 'Base de conocimiento <b>ilimitada</b>', 'Handoff con <b>asignación por reglas</b>'] },
           { h: 'CRM y campañas', p: 'Control total de tu equipo y tus sedes.', li: ['<b>8</b> usuarios / asesores', '<b>10.000</b> contactos en el CRM', 'Envío masivo con <b>segmentación</b>', 'Embudos ilimitados + <b>pruebas A/B</b>', '<b>Multisede</b>'] },
           { h: 'Agenda e integraciones', p: 'Para operaciones que no pueden parar.', li: ['<b>Multi-calendario</b> con recordatorios automáticos', '<b>API abierta</b> + WASI nativo', '<b>8</b> formularios · <b>onboarding asistido</b>'] }
+        ] },
+      { name: 'Starter IA', price: '$119.000', usd: '≈ USD $40 · sin permanencia', cls: 'basic', desc: 'Para negocios que quieren dejar de perder chats y empezar a automatizar su WhatsApp.',
+        groups: [
+          { h: 'Agente de IA básico', p: 'Responde y califica a tus clientes 24/7 por WhatsApp.', li: ['<b>2.000</b> mensajes de IA al mes', '<b>Transcripción</b> de notas de voz', '<b>1 base</b> de conocimiento (RAG)'] },
+          { h: 'CRM y bandeja', p: 'Tu equipo atendiendo desde un solo lugar.', li: ['<b>2</b> usuarios / asesores', '<b>3.000</b> contactos en el CRM', 'Inbox <b>en tiempo real</b>', '<b>5</b> plantillas de WhatsApp y <b>1</b> embudo'] },
+          { h: 'Agenda', p: 'Citas organizadas sin ir chat por chat.', li: ['Agenda <b>inteligente</b>', 'Recordatorio de citas <b>manual</b>', 'Integración con <b>Meta Ads</b> · soporte por WhatsApp'] }
         ] }
     ],
     msg: [
@@ -1444,7 +1466,7 @@ html.dark .footer{background:var(--bg-lav)}
     ]
   };
   var CK = '<span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2l2.3 2.3 4.7-5"/></svg></span>';
-  var GIFT = '<p class="gift">🎁 Te lo dejamos listo en 72 h: configuración gratis <s>$1.000.000</s></p>';
+  var GIFT = '<p class="gift">🎁 Te lo dejamos listo en 72 h: configuración gratis <s>$1.000.000</s><br>📊 + Auditoría de IA cada mes: gratis <s>$797.000/mes</s><br>⏳ Los dos bonos, por tiempo limitado</p>';
   var plansEl = document.getElementById('plans');
   function renderPlans(line) {
     plansEl.innerHTML = PLANS[line].map(function (p) {
