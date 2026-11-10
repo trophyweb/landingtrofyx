@@ -720,6 +720,14 @@ html.dark .for-light{display:none}
       whatsapp: '+57' + phone(),
       marketing_opt_out: form.noNews.checked
     };
+    // Para el Purchase de Meta Ads que manda el backend cuando Mercado Pago confirma el
+    // pago: solo si el visitante aceptó las cookies (el mismo aviso de medicion.js).
+    try {
+      if (localStorage.getItem('tfx_consent') === 'granted') {
+        const cookie = n => (document.cookie.match('(?:^|; )' + n + '=([^;]*)') || [])[1] || '';
+        Object.assign(extra, { consent: 'granted', fbp: cookie('_fbp'), fbc: cookie('_fbc'), lp, source_url: location.href.slice(0, 1000) });
+      }
+    } catch (_) {}
 
     try {
       // 1. Crear la cuenta (igual que trofyx.com/registro.html). Si el backend no acepta
