@@ -601,8 +601,13 @@ html.dark .for-light{display:none}
   /* ---------- Volver a la versión de la landing de la que vino (A/B) ----------
      1.º la página exacta de la que vino (referrer del mismo sitio);
      2.º si el navegador no lo da (p. ej. abriendo los archivos en local), el parámetro
-         lp=a|b que la landing agrega a los botones de los planes, con los mismos UTM. */
-  const LP_PAGES = { a: 'version-a.html', b: 'version-b.html' };
+         lp=a|b|<variante> que la landing agrega a los botones de los planes, con los mismos UTM.
+     Las 5 variantes de scent match (lote 4) salen de version-b.html con _no-subir/generar-variantes.py. */
+  const LP_PAGES = {
+    a: 'version-a.html', b: 'version-b.html',
+    citas: 'citas.html', tiendas: 'tiendas-de-ropa.html', bloqueados: 'bloqueados.html',
+    noche: 'de-noche.html', masivos: 'mensajes-masivos.html'
+  };
   let back = '';
   try {
     const ref = document.referrer && new URL(document.referrer);
