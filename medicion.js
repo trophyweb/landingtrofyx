@@ -6,7 +6,7 @@
  *   Mientras decide, los eventos esperan en cola; si rechaza, se descartan.
  * - Cada evento sale dos veces con el mismo event_id: desde el navegador (fbq) y desde el
  *   servidor (api/medicion.js → API de Conversiones). Meta los deduplica.
- * - Cada evento lleva lp = versión de la landing (a | b), para comparar el test A/B en Meta.
+ * - Cada evento lleva lp = versión de la landing (a | b | en | …), para comparar en Meta.
  *   La versión sale de <html data-lp="…"> o del parámetro ?lp= (el checkout lo recibe así).
  * - <html data-tfx-banner="scroll"> muestra el aviso de cookies al primer scroll o toque,
  *   para no tapar el botón del hero en el celular. Sin ese atributo sale al cargar.
@@ -140,9 +140,13 @@
     banner = document.createElement('div');
     banner.className = 'tfx-ck';
     banner.setAttribute('role', 'region');
-    banner.setAttribute('aria-label', 'Aviso de cookies');
-    banner.innerHTML = '<p>Usamos cookies y el Pixel de Meta para medir las visitas y mostrarte anuncios relevantes de Trofyx. ¿Nos autorizas? Puedes cambiarlo cuando quieras. <a href="' + PRIVACY_URL + '" target="_blank" rel="noopener">Política de privacidad</a></p>'
-      + '<div class="tfx-ck-btns"><button type="button" data-v="denied">Rechazar</button><button type="button" data-v="granted">Aceptar</button></div>';
+    // En inglés en las páginas con <html lang="en"> (en.html y checkout-en.html).
+    const T = /^en\b/i.test(root.lang || '')
+      ? { label: 'Cookie notice', text: 'We use cookies and the Meta Pixel to measure visits and show you relevant Trofyx ads. Do you allow it? You can change this anytime.', privacy: 'Privacy policy (in Spanish)', deny: 'Decline', accept: 'Accept' }
+      : { label: 'Aviso de cookies', text: 'Usamos cookies y el Pixel de Meta para medir las visitas y mostrarte anuncios relevantes de Trofyx. ¿Nos autorizas? Puedes cambiarlo cuando quieras.', privacy: 'Política de privacidad', deny: 'Rechazar', accept: 'Aceptar' };
+    banner.setAttribute('aria-label', T.label);
+    banner.innerHTML = '<p>' + T.text + ' <a href="' + PRIVACY_URL + '" target="_blank" rel="noopener">' + T.privacy + '</a></p>'
+      + '<div class="tfx-ck-btns"><button type="button" data-v="denied">' + T.deny + '</button><button type="button" data-v="granted">' + T.accept + '</button></div>';
     banner.addEventListener('click', e => { const b = e.target.closest('button[data-v]'); if (b) decide(b.dataset.v); });
     document.head.appendChild(css);
     document.body.appendChild(banner);

@@ -10,11 +10,15 @@
 <!-- SEO y vista previa al compartir (trofyx.com). Las versiones A y B apuntan a la portada como canónica. -->
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="canonical" href="https://trofyx.com/">
+<link rel="alternate" hreflang="es" href="https://trofyx.com/">
+<link rel="alternate" hreflang="en" href="https://trofyx.com/en.html">
+<link rel="alternate" hreflang="x-default" href="https://trofyx.com/">
 <link rel="apple-touch-icon" href="assets/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Trofyx">
 <meta property="og:url" content="https://trofyx.com/">
 <meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:title" content="Trofyx® | Vuelve a vender por WhatsApp por la vía oficial">
 <meta property="og:description" content="Negocios bloqueados por WhatsApp vuelven a vender en 72 horas por la vía oficial: la API de WhatsApp con un chatbot con IA. Configuración gratis (valor $1.000.000) y triple garantía.">
 <meta property="og:image" content="https://trofyx.com/Logo_sin_fondo.png">
@@ -234,6 +238,16 @@ html.dark .icon-btn .moon{display:none}
   .mobile-nav a{padding:12px 4px;font-size:18px;color:var(--nav);border-bottom:1px solid var(--border)}
 }
 @media (max-width:420px){.hide-sm{display:none}}
+/* Selector de idioma (ES | EN), al lado del logo. El idioma actual va en un <span aria-current>, el otro es un enlace.
+   Va a la izquierda porque a la derecha choca con el menú centrado entre 960 y 1340 px.
+   En celulares angostos solo se ve el otro idioma, como un botón redondo igual al del tema. */
+.lang{display:inline-flex;align-items:center;gap:2px;margin:0 auto 0 20px;padding:3px;border-radius:999px;background:var(--icon-btn)}
+.lang a,.lang span{display:grid;place-items:center;min-width:36px;height:34px;padding:0 8px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--nav);transition:color .2s,background-color .2s}
+.lang a:hover{color:var(--nav-active)}
+.lang [aria-current]{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(16,24,40,.14)}
+@media (max-width:960px){.lang{margin-left:12px}}
+@media (max-width:520px){.lang{margin-left:8px;padding:0;background:none}.lang [aria-current]{display:none}.lang a{width:40px;min-width:0;height:40px;padding:0;background:var(--icon-btn);color:var(--ink)}}
+@media (max-width:400px){.header-in,.header.scrolled .header-in{padding-left:12px;padding-right:12px}.header-actions{gap:6px}.header-actions .btn-sm{padding:9px 12px}.logo img{height:24px}.lang{margin-left:6px}}
 
 /* =========================================================
    HERO — headline complex: eyebrow, headline, subheadline, VSL, CTA, prueba
@@ -752,6 +766,7 @@ html.dark .footer{background:var(--bg-lav)}
       <img class="for-light" src="assets/logo-lockup-dark.png" alt="Trofyx" width="150" height="38">
       <img class="for-dark" src="assets/logo-lockup-white.png" alt="Trofyx" width="150" height="38">
     </a>
+    <nav class="lang" aria-label="Idioma"><span aria-current="true" lang="es" title="Español">ES</span><a href="en.html" hreflang="en" lang="en" title="English" data-lang-link>EN</a></nav>
     <nav class="nav" aria-label="Principal">
       <a href="#inicio" class="active">Inicio</a>
       <a href="#funciones">Funciones</a>
@@ -775,6 +790,7 @@ html.dark .footer{background:var(--bg-lav)}
     <a href="#precios">Precios</a>
     <a href="#oferta">Activa tu agente (configuración gratis)</a>
     <a href="https://app.trofyx.com/#/login">Iniciar sesión</a>
+    <a href="en.html" hreflang="en" lang="en" data-lang-link>🌐 English</a>
   </nav>
 </header>
 
@@ -1400,6 +1416,21 @@ html.dark .footer{background:var(--bg-lav)}
   }
 
 
+
+  /* ---------- Selector de idioma ----------
+     Lleva los UTM y el fbclid a la otra versión. El enlace con data-lang-back (el "ES" de en.html)
+     vuelve a la página en español de la que vino la persona (p. ej. citas.html), si vino de este sitio. */
+  document.querySelectorAll('a[data-lang-link]').forEach(function (a) {
+    try {
+      var u = new URL(a.getAttribute('href'), location.href);
+      if (a.hasAttribute('data-lang-back') && document.referrer) {
+        var r = new URL(document.referrer), last = r.pathname.split('/').pop();
+        if (r.origin === location.origin && !/^(en(\.html)?|checkout.*)$/.test(last)) u = new URL(r.pathname + r.search, location.href);
+      }
+      new URLSearchParams(location.search).forEach(function (v, k) { if (/^utm_/.test(k) || k === 'fbclid') u.searchParams.set(k, v); });
+      a.setAttribute('href', u.toString());
+    } catch (e) {}
+  });
 
   /* ---------- Tema claro / oscuro ---------- */
   document.getElementById('themeBtn').addEventListener('click', function () {
