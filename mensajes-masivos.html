@@ -436,11 +436,18 @@ html.dark .s-creds{background:var(--bg-lav)}
 .split-media{position:relative;border-radius:18px;border:1px solid var(--border);background:linear-gradient(160deg,#2F2D36 0%,#1E1C22 100%);aspect-ratio:1.12;display:grid;place-items:center;overflow:hidden}
 .split-media::before{content:"";position:absolute;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle,rgba(123,38,250,.35),transparent 70%);filter:blur(10px)}
 .split-media img{position:relative;width:min(412px,82%);border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.split-media.ui{aspect-ratio:auto;padding:30px 0}
+.split-media.ui img{width:92%;height:auto;border-radius:12px}
+.split-media.ui .fb-badge{top:14px;right:14px}
 .split-media .fb-badge{position:absolute;top:18px;right:22%;width:52px;height:52px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 0 0 8px rgba(37,211,102,.15),0 10px 30px rgba(0,0,0,.4);z-index:2}
 .split-media .fb-badge svg{width:28px;height:28px;color:#fff}
 @media (max-width:900px){
   .split{grid-template-columns:1fr;gap:28px}
   .split.rev .split-media{order:0}
+  .split-media.ui{padding:16px 0}
+  .split-media.ui img{width:94%}
+  .split-media.ui .fb-badge{width:40px;height:40px;top:6px;left:6px;right:auto}
+  .split-media.ui .fb-badge svg{width:22px;height:22px}
   .split + .split{margin-top:72px}
   .split p{font-size:19px}
 }
@@ -988,9 +995,9 @@ html.dark .footer{background:var(--bg-lav)}
         <p>Mientras tu equipo duerme, almuerza o atiende a otra persona, tu agente de IA responde con tu catálogo, tus precios y tu tono de marca.</p>
         <p>Sin respuestas de robot. Sin clientes esperando. Sin ventas que se van con la competencia.</p>
       </div>
-      <div class="split-media">
+      <div class="split-media ui">
         <span class="fb-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28z"/></svg></span>
-        <img src="assets/func-f-2.webp" alt="Pantalla de configuración del agente de IA de Trofyx" loading="lazy">
+        <img src="assets/plataforma-chat.webp" alt="Chat real en Trofyx: un cliente escribe desde un anuncio a las 7:16 a. m., el agente de IA le responde en el mismo minuto, transcribe su nota de voz y empieza a calificarlo" width="900" height="768" loading="lazy">
       </div>
     </div>
 
@@ -1009,7 +1016,7 @@ html.dark .footer{background:var(--bg-lav)}
         <p>Lo entrenas con tu información real: catálogo, precios, preguntas frecuentes, documentos y políticas.</p>
         <p>Así responde con tus datos exactos… y cuando la conversación necesita a una persona, se la pasa a tu equipo.</p>
       </div>
-      <div class="split-media"><img src="assets/func-f-3.webp" alt="Base de conocimiento del agente de IA de Trofyx" loading="lazy"></div>
+      <div class="split-media ui"><img src="assets/plataforma-agentes.webp" alt="Pantalla de agentes de IA en Trofyx: el agente principal se presenta como Jony, tiene 1 documento y 6 productos, y está preparado al 100 %" width="964" height="595" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -1057,12 +1064,13 @@ html.dark .footer{background:var(--bg-lav)}
   </div>
   <div class="shots">
     <div class="mq-row"><div class="mq" style="--speed:60s" data-dup>
-      <div class="shot"><img src="assets/func-f-1.webp" alt="Conversaciones" loading="lazy"></div>
-      <div class="shot"><img src="assets/func-f-2.webp" alt="Agente IA" loading="lazy"></div>
-      <div class="shot"><img src="assets/func-f-3.webp" alt="Base de conocimiento" loading="lazy"></div>
+      <div class="shot"><img src="assets/plataforma-chat-tile.webp" alt="Conversaciones: el agente de IA atiende a un cliente que llegó por un anuncio" width="720" height="500" loading="lazy"></div>
       <div class="shot"><img src="assets/func-f-4.webp" alt="Agenda" loading="lazy"></div>
+      <div class="shot"><img src="assets/plataforma-agentes-tile.webp" alt="Agentes IA" width="720" height="500" loading="lazy"></div>
+      <div class="shot"><img src="assets/func-f-3.webp" alt="Base de conocimiento" loading="lazy"></div>
+      <div class="shot"><img src="assets/plataforma-plantilla-tile.webp" alt="Mensajes masivos: plantilla de WhatsApp con vista previa de cómo le llega al cliente" width="720" height="500" loading="lazy"></div>
       <div class="shot"><img src="assets/func-f-5.webp" alt="CRM" loading="lazy"></div>
-      <div class="shot"><img src="assets/func-f-6.webp" alt="Mensajes masivos" loading="lazy"></div>
+      <div class="shot"><img src="assets/plataforma-chatbot-tile.webp" alt="Chatbots: flujo con menú de botones y lista desplegable" width="720" height="500" loading="lazy"></div>
       <div class="shot"><img src="assets/func-f-7.webp" alt="Automatizaciones" loading="lazy"></div>
       <div class="shot"><img src="assets/func-f-8.webp" alt="Administración" loading="lazy"></div>
     </div></div>
